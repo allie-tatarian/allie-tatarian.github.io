@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Welcome to my personal site!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="williamswebsite.css">
+  <!--open source icon from icons8.com-->
+  <link rel="icon" href="icon.png">
+</head>
+
+<body>
+
+
+  <div class="title">
+    <h1>Allie Williams</h1>
+    <h2>Personal Website</h2>
+  </div>
+
+<!--code adapted from w3schools-->
+  <ul class="topnav">
+    <li><a href="index.html">Home</a></li>
+    <li><a class="here" href="bio.html">About Me</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="goals.html">Professional Goals</a><li>
+  </ul>
+
+
+
+  <div class="bodytext">
+    <h2>About Me</h2>
+
+    <p class="paragraph">
+
+      Hello, and welcome to my personal website! My name is <b><i>Allie</i></b> and I'm a Master's student at Simmons University's <b><i>School of Library and Information Science</i></b> (SLIS).
+      My future plans are to work in either an <b><i>archives</i></b>, a <b><i>museum</i></b>, or an <b><i>academic library</i></b>.
+      I identify as non-binary, and use <b><i>they/them/theirs</i></b> pronouns.
+
+    </p>
+
+    <figure>
+      <img id="selfie" alt="A selfie of the site-owner wearing yellow-tinted glasses."
+      title="The site-owner" src="selfie2.jpg" width="300" height="100%">
+    </figure>
+
+    <!--Java code adapted from w3schools-->
+
+    <button onclick="altText()">Alt text</button>
+
+    <p id="button"></p>
+    <p></p>
+
+    <p></p>
+
+  </div>
+
+  <script>
+function altText() {
+  var x = document.getElementById("selfie").alt;
+  document.getElementById("button").innerHTML = x;
+  x = document.getElementById("button");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+  } else {
+      x.style.display = "block";
+  }
+}
+</script>
+
+<footer>
+
+  <div class="foot">
+    <p>Page by: Allie Williams</p>
+    <p>Simmons University, MSLIS class of 2020</p>
+    <p>Pronouns: They/them/theirs</p>
+    <!--code from w3schools -->
+  </div>
+
+</footer>
+
+</body>
+
+</html>
