@@ -116,7 +116,7 @@
     <footer>
         <p>&copy; 2024 Allie Tatarian. All rights reserved.</p>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         async function loadBlogPosts() {
             try {
@@ -144,9 +144,9 @@
             try {
                 const response = await fetch(`posts/${filename}`);
                 const postContent = await response.text();
-                //const parsedContent =marked.parse(postContent);
+                const parsedContent =marked.parse(postContent);
                 const blogPostsContainer = document.getElementById('blog-posts');
-                blogPostsContainer.innerHTML = `<div class="full-post">${postContent}</div>`;
+                blogPostsContainer.innerHTML = `<div class="full-post">${parsedContent}</div>`;
             } catch (error) {
                 console.error('Error loading full post:', error);
             }
