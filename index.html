@@ -231,7 +231,7 @@
                         <h3>${post.title}</h3>
                         <p class="date">${post.date}</p>
                         <p>${post.excerpt}</p>
-                        <a href="blog.html?post=${post.filename}">Read more</a>
+                        <a href="blog.html#" onclick="loadFullPost('${post.filename}'); return false;">Read more</a>
                     `;
                     recentPostsContainer.appendChild(postElement);
                 });
