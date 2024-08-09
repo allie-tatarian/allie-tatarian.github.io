@@ -3,348 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mx. Allie Tatarian</title>
-
-    <!-- Meta tags for SEO -->
-    <meta name="description" content="Welcome to the personal website of Mx. Allie Tatarian, a librarian extraordinaire and crusader for open education. Discover their projects, blog posts, and more.">
-    <meta name="keywords" content="Allie Tatarian, librarian, open education, research, data management, Harvard, Tufts, MetaSat, biomedical research">
-    <meta name="author" content="Allie Tatarian">
-
-    <!-- Open Graph meta tags for social media sharing -->
-    <meta property="og:title" content="Allie Tatarian | Personal Site">
-    <meta property="og:description" content="Welcome to the personal website of Mx. Allie Tatarian, a librarian extraordinaire and crusader for open education. Discover their projects, blog posts, and more.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://allie-tatarian.github.io/">
-    <!--<meta property="og:image" content="https://yourwebsite.com/assets/images/your-image.jpg"> --><!-- Update with your image URL -->
-
-    <!-- Twitter Card meta tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Allie Tatarian | Personal Site">
-    <meta name="twitter:description" content="Welcome to the personal website of Mx. Allie Tatarian, a librarian extraordinaire and crusader for open education. Discover their projects, blog posts, and more.">
-    <!--<meta name="twitter:image" content="https://yourwebsite.com/assets/images/your-image.jpg">--> <!-- Update with your image URL -->
-
+    <title>Allie Tatarian - Data Librarian</title>
     <style>
+        :root {
+            --primary-color: #4A6B6F;
+            --secondary-color: #D8973C;
+            --text-color: #333333;
+            --background-color: #F4F4F4;
+            --section-background: #FFFFFF;
+        }
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
             margin: 0;
             padding: 0;
-            background-color: #EFEFEF;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
         header {
-            background: #4A6B6F;
-            color: #EFEFEF;
-            padding: 1rem 0;
+            background-color: var(--primary-color);
+            color: white;
             text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+            padding: 1rem;
         }
         nav {
-            background: #679289;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0.5rem 0;
+            background-color: var(--secondary-color);
+            padding: 0.5rem;
         }
         nav ul {
-            list-style: none;
+            list-style-type: none;
             padding: 0;
             margin: 0;
             display: flex;
+            justify-content: center;
         }
         nav ul li {
             margin: 0 1rem;
         }
         nav ul li a {
-            color: #EFEFEF;
+            color: white;
             text-decoration: none;
-            font-size: 1.1rem;
         }
-        nav ul li a:hover {
-            text-decoration: underline;
-            color: #EFEFEF;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
-        main {
+        .main-content {
+            flex: 2;
+            min-width: 0;
+        }
+        .sidebar {
             flex: 1;
-            padding: 1rem 2rem;
+            min-width: 250px;
         }
-        .bio {
-            background: #FFFFFF;
-            padding: 1rem;
-            margin: 1rem 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .meta {
-            background: #4A6B6F;
-            color: #EFEFEF;
-            padding: 1rem;
-            margin: 1rem 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .meta a {
-            color: #EFEFEF;
-        }
-        .section-title {
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            color: #E79E9E;
-        }
-        .contact, .portfolio, .blog, .socials {
-            background: #FFFFFF;
-            padding: 1rem;
-            margin: 1rem 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        section, aside {
+            background-color: var(--section-background);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         footer {
+            background-color: var(--primary-color);
+            color: white;
             text-align: center;
-            padding: 1rem 0;
-            background: #4A6B6F;
-            color: #EFEFEF;
+            padding: 1rem;
+            width: 100%;
         }
-        a {
-            color: #4A6B6F;
+        .experience-item, .project-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 1.5rem;
         }
-        a:hover {
-            color: #B8E1C2;
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .experience-item h3, .project-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        .experience-item p, .project-item p {
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .main-content, .sidebar {
+                flex: 1 1 100%;
+            }
+            section, aside {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Mx. Allie Tatarian</h1>
-        <p>Data Librarian | Open Science Enthusiast | AI Literacy Advocate</p>
+        <h1>Allie Tatarian</h1>
+        <p>Data Librarian | Open Science Advocate | Research Ethics Educator</p>
     </header>
     <nav>
         <ul>
-            <li><a href="#bio">Intro</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <!--<li><a href="#blog">Blog</a></li>-->
-            <!--<li><a href=#about>About Me</a></li>-->
-            <li><a href="#socials">Socials</a></li>
         </ul>
     </nav>
-    <main>
-        <section class="meta">
-            <p>I recently asked ChatGPT (the new GPT4 Omni model) to create me a personal webpage (including SEO and styling). I also asked Microsoft Copilot (creative mode) to write a "fun but professional" bio for myself. This is what they came up with:</p>
-        </section>
-        <section class="bio" id="bio">
-            <p>Meet Allie Tatarian, the <strong>librarian extraordinaire</strong> who's turning the page to a new chapter of information accessibility. With a <strong>Master of Library and Information Science</strong> from Simmons University, Allie is not just a guardian of books but a <strong>crusader for open education</strong>.</p>
-            <p>At the <strong>Wolbach Library</strong> of Harvard University, Allie was instrumental in developing MetaSat, a project that's out of this world&mdash;literally. They contributed to the original vocabulary list and ensured that the resources were as accessible as possible, even to screen-reader and keyboard users. It's no wonder that under their watch, knowledge became more universal than ever!</p>
-            <p>Now at <strong>Tufts University's Hirsh Health Sciences Library</strong>, Allie is the go-to <strong>Research & Instruction and Data Librarian</strong>. They help researchers navigate the maze of Data Management Plans and share their work with the world. Before stepping into the library, Allie was a <strong>biomedical researcher</strong> studying both plant and human pathogens, which means they're as comfortable with data as they are with Dewey Decimals.</p>
-            <p>When not orchestrating the symphony of library science, Allie can be found in New Bedford, sharing a cozy space with their wife and a cat named Elton John. Whether it's setting up translation projects or orienting translators, Allie's work speaks volumes&mdash;sometimes in more languages than one!</p>
-            <p>So, if you're in need of a <strong>data wizard</strong> or a <strong>literary champion</strong>, look no further. Allie Tatarian is here to check out your queries and check in solutions!</p>
-        </section>
-        <section class="meta">
-            <p>I think this bio is cute! The tone is a little over the top, but it is in line with what I asked for. It's a bit out of date, and focuses more on projects that I've worked on in the <i>past</i> than what I'm working on <i>now</i>, which makes sense, because it only has access to information that is easily Google-able (Bing-able?). Everything it wrote is or was true, although some parts are not true anymore, and some pieces are bafflingly out of context (especially the line about "Whether its setting up translation projects or orienting translators..." Yes, that's <a href="https://gitlab.com/library-space-technology-network/LSTN-translations" target="_blank">something I did</a>, but has nothing to do with anything in the rest of the bio). </p>
-            <!--<p>Just for fun, let's look at how we'd cite these chatbot convos (I <strong>am</strong> a librarian after all). A few takeaways I have are that first, citing the "version" of a bot is not intuitive or easy, and that, while I understand why some style manuals are asking for the prompt in the citation, I think that it can easily become unwieldy, and also minimizes the back-and-forth that is necessary to get good results from a chatbot.</p>
-            <h3>Bio Citation:</h2>
-            <ul>
-                <li><strong>APA:</strong> Microsoft. (2024). Copilot (April version) [Large language model]. https://copilot.microsoft.com</li>
-                <li><strong>Chicago:</strong> Copilot, response to "Can you write a fun but professional bio about me (Allie Tatarian)?", Microsoft, June 4, 2024, https://copilot.microsoft.com.</li>
-                <li><strong>MLA:</strong> "Can you write a fun but professional bio about me (Allie Tatarian)?" prompt. <i>Copilot</i>, Apr. version, Microsoft, 04 June 2024, https://copilot.microsoft.com.</li>
-            </ul>
-            <h3>Webpage Citation:</h2>
-            <ul>
-                <li><strong>APA:</strong> OpenAI. (2024). ChatGPT (April 29 version) [Large language model]. https://chatgpt.com</li>
-                <li><strong>Chicago:</strong> ChatGPT, response to "Create a personal webpage for me, all in a single file. Ask me 3 questions first on whatever you need to know.", OpenAI, June 4, 2024, https://chatgpt.com.</li>
-                <li><strong>MLA:</strong> "Create a personal webpage for me, all in a single file. Ask me 3 questions first on whatever you need to know." prompt. <i>ChatGPT</i>, 29 Apr. version, OpenAI, 04 June 2024, https://chatgpt.com.</li>
-            </ul>-->
-            <p>For the record, the rest of the sections in this page were crafted by ChatGPT, too&mdash;I just updated the filler information it put together.</p>
-        </section>
-        
-        <section class="contact" id="contact">
-            <h2 class="section-title">Contact Information</h2>
-            <ul>
-                <li><a href="mailto:allie.tatarian@gmail.com">Email</a></li>
-                <li><a href="https://github.com/allie-tatarian" target="_blank">GitHub</a></li>
-                <li><a href="https://orcid.org/0000-0003-1468-5373" target="_blank">ORCID</a></li>
-                <li><a href="https://linkedin.com/in/allie-tatarian" target="_blank">LinkedIn</a></li>
-            </ul>
-
-        </section>
-        
-        <section class="portfolio" id="portfolio">
-            <h2 class="section-title">Portfolio</h2>
-            <p>Right now, my portfolio is being stored in my <a href="https://picturesque-theory-f87.notion.site/CV-resume-eccd9078b2044dc4a6b9c1875e950318?pvs=4">Living CV on Notion</a>.</p>
-        </section>
-        
-        <!--<section class="blog" id="blog">
-            <h2 class="section-title">Blog</h2>
-            <p>Coming soon?</p>
-            <ul>
-                <li><a href="#">filler</a></li>
-                <li><a href="#">filler</a></li>
-                <li><a href="#">filler</a></li>
-            </ul>
-        </section>-->
-        
-        <!--<section class="portfolio" id="about">
-            <h2 class="section-title">About Me</h2>
-            <p>Here are some things other people have written about me:</p>
-            <ul>
-                <li><a href="">JeSLIB news post</a></li>
-            </ul>
-        </section>-->
-
-        <section class="socials" id="socials">
-            <h2 class="section-title">Social Media</h2>
-            <p>I don't really use any of these right now! I guess that could change.</p>
-            <ul>
-                <li><a href="https://instagram.com/allie.tatarian" target="_blank">Instagram</a></li>
-                <li><a href="https://twitter.com/allietatarian" target="_blank">Twitter</a></li>
-                <li><a href="https://bsky.app/profile/allietatarian.bsky.social" target="_blank">Bluesky</a></li>
-                <li><a href="https://mastodon.social/@allie_tatarian" target="_blank">Mastodon</a></li>
-            </ul>
-        </section>
-
-        <section class="socials" id="states">
-            <h2 class="section-title">Map</h2>
-            <p>This is a map of states I've been to! I'm pretty sure I've visited more than this, and I've definitely passed through more. These are all of the states that I can pin distinct memories to.</p>
-            <script src="https://www.amcharts.com/lib/3/ammap.js" type="text/javascript"></script>
-<script src="https://www.amcharts.com/lib/3/maps/js/usaHigh.js" type="text/javascript"></script>
-<script src="https://www.amcharts.com/lib/3/themes/light.js" type="text/javascript"></script>
-<div id="mapdiv" style="width: 1000px; height: 450px;"></div>
-<div style="width: 1000px; font-size: 70%; padding: 5px 0; text-align: center; background-color: #535364; margin-top: 1px; color: #B4B4B7;"><a href="https://www.amcharts.com/visited_states/" style="color: #B4B4B7;">Create your own visited states map</a> or check out the <a href="https://www.amcharts.com/" style="color: #B4B4B7;">JavaScript Charts</a>.</div>
-<script type="text/javascript">
-var map = AmCharts.makeChart("mapdiv",{
-type: "map",
-theme: "light",
-panEventsEnabled : true,
-backgroundColor : "#535364",
-backgroundAlpha : 1,
-zoomControl: {
-zoomControlEnabled : true
-},
-dataProvider : {
-map : "usaHigh",
-getAreasFromMap : true,
-areas :
-[
-	{
-		"id": "US-AK",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-AR",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-CA",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-CT",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-FL",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-GA",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-IL",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-IN",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-MA",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-ME",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-MI",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-MO",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-MS",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-NH",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-NJ",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-NY",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-OH",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-PA",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-RI",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-SC",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-SD",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-TN",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-VT",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-WI",
-		"showAsSelected": true
-	},
-	{
-		"id": "US-WY",
-		"showAsSelected": true
-	}
-]
-},
-areasSettings : {
-autoZoom : true,
-color : "#B4B4B7",
-colorSolid : "#84ADE9",
-selectedColor : "#84ADE9",
-outlineColor : "#666666",
-rollOverColor : "#9EC2F7",
-rollOverOutlineColor : "#000000"
-}
-});
-</script>
-
-        </section>
-    </main>
+    <div class="container">
+        <main class="main-content">
+            <section id="about">
+                <h2>About Me</h2>
+                <p>Data librarian with 4+ years of experience in academic settings, specializing in research data management, open science practices, and research ethics education. Demonstrated ability to initiate and lead cross-departmental collaborations, developing and implementing library services and educational programs. Skilled in stakeholder engagement and fostering partnerships that enhance library impact and researcher support.</p>
+            </section>
+            <section id="experience">
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <h3>Research & Instruction and Data Librarian</h3>
+                    <p><em>Hirsh Health Sciences Library, Tufts University, Boston, MA</em> | Jul 2022--Present</p>
+                    <ul>
+                        <li>Consult with researchers on data management plans, data standards, and data sharing best practices</li>
+                        <li>Leading initiatives to improve Research Data Management (RDM) wayfinding and outreach</li>
+                        <li>Revive and coordinate Carpentries at Tufts program</li>
+                        <li>Organize Responsible Conduct of Research workshop series in collaboration with Office of Vice Provost for Research</li>
+                        <li>Build relationships to increase library engagement with historically distant graduate school</li>
+                        <li>Write and maintain LibGuides on RDM-related topics, including AI Literacy in the Biomedical Sciences guide with over 500 views in 2 months</li>
+                        <li>Serve as the go-to for pre-clinical and fundamental biomedical science research questions</li>
+                        <li>Plan and lead workshops on diverse topics including research data management, database navigation, and AI literacy</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>LEADING Fellow</h3>
+                    <p><em>College of Computing and Informatics, Drexel University, Philadelphia, PA & Smithsonian Libraries, Washington, D.C.</em> | Jul--Dec 2021</p>
+                    <ul>
+                        <li>Drafted a roadmap of potential AI-based techniques to match museum specimen numbers in academic papers with their equivalent Smithsonian artifacts</li>
+                        <li>Created a Python-based named-entity recognition (NER) machine learning model to extract museum specimen numbers from academic papers</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>MetaSat Project Assistant</h3>
+                    <p><em>Wolbach Library, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA</em> | Jul 2019--Sep 2021</p>
+                    <ul>
+                        <li>Helped create MetaSat, a free and open-source, linked-data satellite mission metadata vocabulary</li>
+                        <li>Established a crowdsourced translation project for LSTN, a space education project related to MetaSat</li>
+                        <li>Created resources and tutorials for LSTN translation participants</li>
+                        <li>Wrote a "MetaSat Primer" detailing best practices for MetaSat and linked data</li>
+                        <li>Conducted an accessibility audit of the MetaSat website</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="project-item">
+                    <h3>AI Literacy in the Biomedical Sciences LibGuide</h3>
+                    <p>Created and maintained a comprehensive guide on AI literacy for biomedical researchers, which amassed over 500 views in just 2 months.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Carpentries at Tufts Program</h3>
+                    <p>Revived and coordinated the Carpentries program at Tufts, teaching workshops on Git, OpenRefine, and other data science tools.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Responsible Conduct of Research Workshop Series</h3>
+                    <p>Organized and led a series of workshops on research ethics in collaboration with the Office of Vice Provost for Research.</p>
+                </div>
+                <div class="project-item">
+                    <h3>MetaSat and LSTN Translation Project</h3>
+                    <p>Contributed to the development of MetaSat, a linked-data satellite mission metadata vocabulary, and established a crowdsourced translation project for related educational materials.</p>
+                </div>
+            </section>
+        </main>
+        <aside class="sidebar">
+            <section>
+                <h3>Skills Highlights</h3>
+                <ul>
+                    <li>Research Data Management</li>
+                    <li>Open Science Practices</li>
+                    <li>Data Management Plans</li>
+                    <li>Metadata Standards</li>
+                    <li>Workshop Development & Delivery</li>
+                    <li>Stakeholder Engagement</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Recent Presentations</h3>
+                <ul>
+                    <li>Nutrition 2023: "Public Data Sharing -- New Norms, Current State of Affairs, and Best Practices Going Forward"</li>
+                    <li>Teaching and Learning With AI conference 2024: "Beyond the Hype: Addressing Bias in AI for Information Literacy Instruction"</li>
+                    <li>ACRL-NEC/NELIG Annual Conference 2024: "Beyond Science Fiction: AI's Past, Present, & Impact on Libraries & Education"</li>
+                </ul>
+            </section>
+            <section id="blog">
+                <h2>Blog Preview</h2>
+                <p>Coming soon! Check back for insights on data management, open science, and more.</p>
+            </section>
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:allie.tatarian@gmail.com">allie.tatarian@gmail.com</a></p>
+                <p>Phone: (203) 390-9978</p>
+                <p>Location: New Bedford, MA</p>
+                <p>ORCID: <a href="https://orcid.org/0000-0003-1468-5373" target="_blank">0000-0003-1468-5373</a></p>
+            </section>
+        </aside>
+    </div>
     <footer>
-        <p>&copy; 2024 Allie Tatarian</p>
+        <p>&copy; 2024 Allie Tatarian. All rights reserved.</p>
     </footer>
 </body>
 </html>
