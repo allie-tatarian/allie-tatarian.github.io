@@ -118,144 +118,41 @@
     </footer>
 
     <script>
-        async function loadBlogContent() {
-    console.log("loadBlogContent function called");
-    const urlParams = new URLSearchParams(window.location.search);
-    const postFilename = urlParams.get('post');
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch('posts.json');
+                const posts = await response.json();
+                const blogPostsContainer = document.getElementById('blog-posts');
 
-    try {
-        if (postFilename) {
-            await loadFullPost(postFilename);
-        } else {
-            await loadBlogPosts();
-        }
-    } catch (error) {
-        console.error("Error in loadBlogContent:", error);
-        document.getElementById('blog-content').innerHTML = `<p>Error loading blog content. Please try again later.</p>`;
-    }
-}
-
-// Function to load blog posts
-async function loadBlogPosts() {
-    console.log("loadBlogPosts function called");
-    try {
-        const response = await fetch('posts.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const posts = await response.json();
-        const blogContentContainer = document.getElementById('blog-content');
-        
-        if (!blogContentContainer) {
-            throw new Error("Blog content container not found");
+                posts.forEach(post => {
+                    const postElement = document.createElement('article');
+                    postElement.className = 'blog-post';
+                    postElement.innerHTML = `
+                        <h2>${post.title}</h2>
+                        <p class="date">${post.date}</p>
+                        <p>${post.excerpt}</p>
+                        <a href="#" onclick="loadFullPost('${post.filename}'); return false;">Read more</a>
+                    `;
+                    blogPostsContainer.appendChild(postElement);
+                });
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+            }
         }
 
-        blogContentContainer.innerHTML = '<h1>Blog Posts</h1>';
-
-        if (posts.length === 0) {
-            blogContentContainer.innerHTML += '<p>No blog posts found.</p>';
-            return;
+        async function loadFullPost(filename) {
+            try {
+                const response = await fetch(`posts/${filename}`);
+                const postContent = await response.text();
+                //const parsedContent =marked.parse(postContent);
+                const blogPostsContainer = document.getElementById('blog-posts');
+                blogPostsContainer.innerHTML = `<div class="full-post">${postContent}</div>`;
+            } catch (error) {
+                console.error('Error loading full post:', error);
+            }
         }
 
-        posts.forEach(post => {
-            const postElement = document.createElement('article');
-            postElement.className = 'blog-post-preview';
-            postElement.innerHTML = `
-                <h2>${post.title}</h2>
-                <p class="date">${post.date}</p>
-                <p>${post.excerpt}</p>
-                <a href="?post=${encodeURIComponent(post.filename)}">Read more</a>
-            `;
-            blogContentContainer.appendChild(postElement);
-        });
-    } catch (error) {
-        console.error('Error loading blog posts:', error);
-        document.getElementById('blog-content').innerHTML = `<p>Error loading blog posts. Please try again later.</p>`;
-    }
-}
-
-// Function to load full post
-async function loadFullPost(filename) {
-    console.log("loadFullPost function called with filename:", filename);
-    try {
-        const response = await fetch(`posts/${filename}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const postContent = await response.text();
-        const blogContentContainer = document.getElementById('blog-content');
-        
-        if (!blogContentContainer) {
-            throw new Error("Blog content container not found");
-        }
-
-        // Check if marked is available
-        if (typeof marked === 'undefined') {
-            console.warn("marked.js is not loaded. Displaying raw Markdown.");
-            blogContentContainer.innerHTML = `
-                <div class="full-post">
-                    <pre>${postContent}</pre>
-                </div>
-                <a href="blog.html">Back to all posts</a>
-            `;
-        } else {
-            // Use marked.js to parse Markdown
-            const parsedContent = marked.parse(postContent);
-            blogContentContainer.innerHTML = `
-                <div class="full-post">
-                    ${parsedContent}
-                </div>
-                <a href="blog.html">Back to all posts</a>
-            `;
-        }
-    } catch (error) {
-        console.error('Error loading full post:', error);
-        document.getElementById('blog-content').innerHTML = `<p>Error loading the blog post. Please try again later.</p>`;
-    }
-}
-
-// Load blog content when the window loads
-window.onload = loadBlogContent;
-
-// Function to load recent posts for the main page
-async function loadRecentPosts() {
-    console.log("loadRecentPosts function called");
-    try {
-        const response = await fetch('posts.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const posts = await response.json();
-        const recentPostsContainer = document.getElementById('recent-posts');
-        
-        if (!recentPostsContainer) {
-            throw new Error("Recent posts container not found");
-        }
-
-        posts.slice(0, 3).forEach(post => {
-            const postElement = document.createElement('article');
-            postElement.className = 'blog-post-preview';
-            postElement.innerHTML = `
-                <h3>${post.title}</h3>
-                <p class="date">${post.date}</p>
-                <p>${post.excerpt}</p>
-                <a href="blog.html?post=${encodeURIComponent(post.filename)}">Read more</a>
-            `;
-            recentPostsContainer.appendChild(postElement);
-        });
-    } catch (error) {
-        console.error('Error loading recent posts:', error);
-        const recentPostsContainer = document.getElementById('recent-posts');
-        if (recentPostsContainer) {
-            recentPostsContainer.innerHTML = `<p>Error loading recent posts. Please try again later.</p>`;
-        }
-    }
-}
-
-// Check if we're on the main page and load recent posts if so
-if (document.getElementById('recent-posts')) {
-    loadRecentPosts();
-}
+        window.onload = loadBlogPosts;
     </script>
 </body>
 </html>
