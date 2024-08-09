@@ -200,9 +200,12 @@
                     <li>ACRL-NEC/NELIG Annual Conference 2024: "Beyond Science Fiction: AI's Past, Present, & Impact on Libraries & Education"</li>
                 </ul>
             </section>
-            <section id="blog">
+            <section id="blog-preview">
                 <h2>Blog Preview</h2>
-                <p>Coming soon! Check back for insights on data management, open science, and more.</p>
+                <div id="recent-posts">
+                    <!-- Recent blog posts will be dynamically inserted here -->
+                </div>
+                <a href="blog.html">View all posts</a>
             </section>
             <section id="contact">
                 <h2>Contact</h2>
@@ -213,5 +216,30 @@
     <footer>
         <p>&copy; 2024 Allie Tatarian. All rights reserved.</p>
     </footer>
+    <script>
+        async function loadRecentPosts() {
+            try {
+                const response = await fetch('posts.json');
+                const posts = await response.json();
+                const recentPostsContainer = document.getElementById('recent-posts');
+        
+                posts.slice(0, 3).forEach(post => {
+                    const postElement = document.createElement('article');
+                    postElement.className = 'blog-post-preview';
+                    postElement.innerHTML = `
+                        <h3>${post.title}</h3>
+                        <p class="date">${post.date}</p>
+                        <p>${post.excerpt}</p>
+                        <a href="blog.html?post=${post.filename}">Read more</a>
+                    `;
+                    recentPostsContainer.appendChild(postElement);
+                });
+            } catch (error) {
+                console.error('Error loading recent posts:', error);
+            }
+        }
+        
+        window.onload = loadRecentPosts;
+        </script>
 </body>
 </html>
