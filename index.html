@@ -219,43 +219,28 @@
     </footer>
     <script>
         async function loadRecentPosts() {
-    console.log("loadRecentPosts function called");
-    try {
-        const response = await fetch('posts.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const posts = await response.json();
-        const recentPostsContainer = document.getElementById('recent-posts');
+            try {
+                const response = await fetch('posts.json');
+                const posts = await response.json();
+                const recentPostsContainer = document.getElementById('recent-posts');
         
-        if (!recentPostsContainer) {
-            throw new Error("Recent posts container not found");
+                posts.slice(0, 3).forEach(post => {
+                    const postElement = document.createElement('article');
+                    postElement.className = 'blog-post-preview';
+                    postElement.innerHTML = `
+                        <h3>${post.title}</h3>
+                        <p class="date">${post.date}</p>
+                        <p>${post.excerpt}</p>
+                        <a href="blog.html?post=${post.filename}">Read more</a>
+                    `;
+                    recentPostsContainer.appendChild(postElement);
+                });
+            } catch (error) {
+                console.error('Error loading recent posts:', error);
+            }
         }
-
-        posts.slice(0, 3).forEach(post => {
-            const postElement = document.createElement('article');
-            postElement.className = 'blog-post-preview';
-            postElement.innerHTML = `
-                <h3>${post.title}</h3>
-                <p class="date">${post.date}</p>
-                <p>${post.excerpt}</p>
-                <a href="blog.html?post=${encodeURIComponent(post.filename)}">Read more</a>
-            `;
-            recentPostsContainer.appendChild(postElement);
-        });
-    } catch (error) {
-        console.error('Error loading recent posts:', error);
-        const recentPostsContainer = document.getElementById('recent-posts');
-        if (recentPostsContainer) {
-            recentPostsContainer.innerHTML = `<p>Error loading recent posts. Please try again later.</p>`;
-        }
-    }
-}
-
-// Check if we're on the main page and load recent posts if so
-if (document.getElementById('recent-posts')) {
-    loadRecentPosts();
-}
+        
+        window.onload = loadRecentPosts;
         </script>
 </body>
 </html>
