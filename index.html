@@ -203,10 +203,11 @@
             </section>
             <section id="blog-preview">
                 <h2>Blog Preview</h2>
+                <p>These are excerpts from my most recent posts! To read more, <a href="blog.html">head to my blog page</a>.</p>
                 <div id="recent-posts">
                     <!-- Recent blog posts will be dynamically inserted here -->
                 </div>
-                <a href="blog.html">View all posts</a>
+                
             </section>
             <section id="contact">
                 <h2>Contact</h2>
@@ -231,7 +232,7 @@
                         <h3>${post.title}</h3>
                         <p class="date">${post.date}</p>
                         <p>${post.excerpt}</p>
-                        <a href="blog.html#" onclick="loadFullPost('${post.filename}'); return false;">Read more</a>
+                        
                     `;
                     recentPostsContainer.appendChild(postElement);
                 });
