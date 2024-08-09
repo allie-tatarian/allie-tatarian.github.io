@@ -129,6 +129,25 @@
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+        footer a {
+            color: #FFD700; /* A brighter yellow for better contrast */
+            text-decoration: underline; /* Adds underline to all link states */
+            transition: color 0.3s ease; /* Smooth transition for color changes */
+        }
+
+        footer a:hover, 
+        footer a:focus {
+            color: #FFF; /* White for hover and focus states */
+            text-decoration: underline;
+        }
+
+        footer a:active {
+            color: #D8973C; /* Your original yellow for the active state */
+        }
+
+        footer a:visited {
+            color: #E6BE8A; /* A lighter shade of your original yellow for visited links */
+        }
     </style>
 </head>
 <body>
