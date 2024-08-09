@@ -20,6 +20,9 @@
             background-color: var(--background-color);
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body takes at least the full viewport height */
         }
         header {
             background-color: var(--primary-color);
@@ -46,7 +49,9 @@
             text-decoration: none;
         }
         main {
+            flex: 1; /* Allow main to grow and push footer down */
             max-width: 800px;
+            width: 100%;
             margin: 2rem auto;
             padding: 0 1rem;
         }
@@ -55,6 +60,7 @@
             padding: 2rem;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem; /* Add some space before the footer */
         }
         .blog-post-preview {
             margin-bottom: 2em;
@@ -84,8 +90,6 @@
             color: white;
             text-align: center;
             padding: 1rem;
-            position: fixed;
-            bottom: 0;
             width: 100%;
         }
     </style>
