@@ -6,7 +6,7 @@
     <title>Allie Tatarian - Blog</title>
     <!-- Include your existing CSS here -->
     <style>
-        :root {
+                :root {
             --primary-color: #4A6B6F;
             --secondary-color: #D8973C;
             --text-color: #333333;
@@ -103,11 +103,11 @@
                 padding: 1rem;
             }
         }
-         #blog-content {
+        #blog-posts {
             max-width: 800px;
             margin: 0 auto;
         }
-        .blog-post-preview {
+        .blog-post {
             margin-bottom: 2em;
             padding-bottom: 1em;
             border-bottom: 1px solid #ccc;
@@ -121,12 +121,11 @@
     </header>
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#experience">Experience</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -142,33 +141,22 @@
     </footer>
 
     <script>
-         async function loadBlogContent() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const postFilename = urlParams.get('post');
-
-            if (postFilename) {
-                await loadFullPost(postFilename);
-            } else {
-                await loadBlogPosts();
-            }
-        }
-
         async function loadBlogPosts() {
             try {
                 const response = await fetch('posts.json');
                 const posts = await response.json();
-                const blogContentContainer = document.getElementById('blog-content');
+                const blogPostsContainer = document.getElementById('blog-posts');
 
                 posts.forEach(post => {
                     const postElement = document.createElement('article');
-                    postElement.className = 'blog-post-preview';
+                    postElement.className = 'blog-post';
                     postElement.innerHTML = `
                         <h2>${post.title}</h2>
                         <p class="date">${post.date}</p>
                         <p>${post.excerpt}</p>
-                        <a href="?post=${post.filename}">Read more</a>
+                        <a href="#" onclick="loadFullPost('${post.filename}'); return false;">Read more</a>
                     `;
-                    blogContentContainer.appendChild(postElement);
+                    blogPostsContainer.appendChild(postElement);
                 });
             } catch (error) {
                 console.error('Error loading blog posts:', error);
@@ -179,19 +167,14 @@
             try {
                 const response = await fetch(`posts/${filename}`);
                 const postContent = await response.text();
-                const blogContentContainer = document.getElementById('blog-content');
-                blogContentContainer.innerHTML = `
-                    <div class="full-post">
-                        ${postContent}
-                    </div>
-                    <a href="blog.html">Back to all posts</a>
-                `;
+                const blogPostsContainer = document.getElementById('blog-posts');
+                blogPostsContainer.innerHTML = `<div class="full-post">${postContent}</div>`;
             } catch (error) {
                 console.error('Error loading full post:', error);
             }
         }
 
-        window.onload = loadBlogContent;
+        window.onload = loadBlogPosts;
     </script>
 </body>
 </html>
