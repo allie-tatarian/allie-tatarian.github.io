@@ -103,6 +103,37 @@ h1, h2 {
 .session-info strong {
     color: var(--secondary-color);
 }
+.presentations-container {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.presentation-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.presentation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.presentation-card h3 {
+    font-family: Georgia, serif;
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.4em;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.presentation-info {
+    margin-bottom: 12px;
+}
+.presentation-info strong {
+    color: var(--secondary-color);
+}
 .key-points {
     list-style-type: none;
     padding-left: 0;
@@ -152,6 +183,9 @@ footer a {
         font-size: 2em;
     }
     .session-card {
+        padding: 20px;
+    }
+    .presentation-card {
         padding: 20px;
     }
     nav {
