@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Welcome to my personal site!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="williamswebsite.css">
+  <!--open source icon from icons8.com-->
+  <link rel="icon" href="icon.png">
+</head>
+
+<body>
+
+
+  <div class="title">
+    <h1>Allie Williams</h1>
+    <h2>Personal Website</h2>
+  </div>
+
+<!--code adapted from w3schools-->
+  <ul class="topnav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="bio.html">About Me</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a class="here" href="goals.html">Professional Goals</a><li>
+  </ul>
+
+
+
+  <div class="bodytext">
+    <h2>Why Library and Information Science?</h2>
+    <p id="question">Hey! Your resume says your background is in biology. What are you doing in a library science program?</p>
+
+    <p class="paragraph">Great question! While working full time in a biological research lab, I realized that I was more interested in the <b><i>dissemination</i></b> of information than the <b><i>creation</i></b> of data.
+      The world of scientific research and academia is called the "ivory tower" for a reason: primary research articles are dense are hard to read for the average layman (or even the average scientist in a different field!), and hidden behind prohibitive paywalls.
+      I want to help people <b><i>access</i></b> information instead of sequestering away my work. The world of libraries and archives seems like a great place to do that!
+    </p>
+
+
+    <figure>
+      <img id="cards" alt="A picture of an old-fashioned card catalog, taken from a low side angle."
+      title="Card catalog" src="cardcatalog.jpg" width="300" height="100%">
+      <!--Figure from Wikipedia, Creative Commons https://commons.wikimedia.org/wiki/File:2009_3962573662_card_catalog.jpg-->
+    </figure>
+
+    <!--Java code adapted from w3schools-->
+
+    <button onclick="altText()">Alt text</button>
+
+    <p id="button"></p>
+    <p></p>
+
+  </div>
+
+  <script>
+function altText() {
+  var x = document.getElementById("cards").alt;
+  document.getElementById("button").innerHTML = x;
+  x = document.getElementById("button");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+  } else {
+      x.style.display = "block";
+  }
+}
+</script>
+
+<footer>
+
+  <div class="foot">
+    <p>Page by: Allie Williams</p>
+    <p>Simmons University, MSLIS class of 2020</p>
+    <p>Pronouns: They/them/theirs</p>
+    <!--code from w3schools -->
+  </div>
+
+</footer>
+
+</body>
+
+</html>

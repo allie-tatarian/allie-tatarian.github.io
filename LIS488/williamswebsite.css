@@ -1,0 +1,108 @@
+/*
+Colors:
+#F0F0F0 (very light grey)
+#968BC9 (bluish purple)
+#E8E8B8 (light key lime)
+#C0648C (Desaturated purple-leaning magenta)
+#931A28 (black-leaning red) */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #D6D4E0;
+  font-family: Verdana, Geneva, sans-serif;
+  color: #342e52;
+}
+
+/*All ul code adapted from w3schools*/
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #b8a9c9;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: #342e52;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a.here {
+    background-color: #7a4d80;
+    color: #201C32;
+  }
+
+ul.topnav li a:hover {
+  background-color: #8F85BB;
+  color: #342e52;
+}
+
+i {
+  font-style: italic;
+  font-style: bold;
+  color: #5b9aa0;
+}
+
+#welcome {text-align: center;}
+
+#question {
+  text-align: left;
+  font-style: italic;
+  color: #5b9aa0;
+  font-size: 1.1em;
+}
+
+.bodytext {text-align: center;}
+
+.paragraph {text-align: left;}
+
+.paragraph a {color: #5b9aa0;}
+
+.paragraph a:visited {color: #385e61;}
+
+.paragraph a:hover {color:#7d5b9f;}
+
+.foot {
+  text-align: center;
+  background-color: #6A8D9B;
+  margin: 0 auto;
+  padding: .5em;
+  color: #201C32;
+  font-size: .9em;
+  font-style: italic;
+}
+
+.foot p {margin: .1em;}
+
+.title {
+  background-color: #6A8D9B;
+  padding: .5em 1em;
+  color: #201C32;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  color: #342e52;
+}
+
+@media screen and (max-width: 600px){
+    ul.topnav li {float: none;}
+    .title {
+      text-align: center;
+      font-size: 1em;
+    }
+}
