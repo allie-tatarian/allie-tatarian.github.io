@@ -1,0 +1,180 @@
+---
+---
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/fontawesome-5-css/5.15.4/webfonts/CenturyGothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #27ae60;
+    --background-color: #f5f7fa;
+    --card-background: #ffffff;
+    --text-color: #34495e;
+    --header-text-color: #ffffff;
+}
+body {
+    font-family: 'Century Gothic', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header {
+    background-color: var(--secondary-color);
+    color: var(--header-text-color);
+    padding: 2rem 0;
+    text-align: center;
+}
+header h1 {
+    margin-bottom: 0.5rem;
+    color: var(--header-text-color);
+}
+header p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+nav {
+    background-color: var(--primary-color);
+    padding: 0.5rem 0;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.nav-toggle {
+    display: none;
+}
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1, h2 {
+    font-family: Georgia, serif;
+    color: var(--secondary-color);
+}
+.sessions-container {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.session-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.session-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.session-card h3 {
+    font-family: Georgia, serif;
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.4em;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.session-info {
+    margin-bottom: 12px;
+}
+.session-info strong {
+    color: var(--secondary-color);
+}
+.key-points {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+.key-points li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+.key-points li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+.feedback {
+    background-color: #f7f9fa;
+    border-left: 4px solid var(--accent-color);
+    padding: 10px;
+    font-style: italic;
+}
+footer {
+    background-color: var(--secondary-color);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+footer a {
+    color: #fff
+}
+.social-links {
+    margin-top: 1rem;
+}
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .session-card {
+        padding: 20px;
+    }
+    nav {
+        text-align: center;
+    }
+    .nav-toggle {
+        display: inline-block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin: 0 auto;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul.show {
+        display: flex;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+}

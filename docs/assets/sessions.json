@@ -1,0 +1,50 @@
+---
+---
+{
+    "sessions": [
+        {
+            "title": "Beyond Traditional Publishing: Accelerating Research Impact with Preprints and Data Articles",
+            "date": "November 6, 2024",
+            "audience": "All researchers",
+            "keyPoints": [
+              "Introduction to preprints",
+              "Introduction to data articles",
+              "Using preprints and data articles to accelerate research dissemination"
+            ],
+            "description": "Discover how to amplify the reach and impact of your research beyond traditional journal publishing. This workshop explores two powerful alternatives: preprints and data articles. Learn how these strategies can speed up dissemination, invite earlier feedback, and increase the visibility of both your manuscripts and datasets. The session will provide practical insights into integrating these methods alongside traditional publishing. Join us to expand your toolkit for sharing your valuable contributions swiftly and openly in today's fast-paced scientific landscape. <i>[Title and description written with the help of Claude AI]</i>"
+          },
+      {
+        "title": "AI Literacy for a Changing Biomedical Landscape",
+        "date": "April 10, 2024",
+        "audience": "Graduate students in the biomedical sciences",
+        "keyPoints": [
+          "Fundamental concepts of AI",
+          "Evaluating AI tools",
+          "Practical applications of AI tools"
+        ],
+        "description": "In this student-aimed workshop, we will explore the fundamental concepts of AI, learn to evaluate AI tools, and discover practical applications in your everyday life. This interactive workshop will equip you with the skills to confidently navigate the world of machine intelligence. We'll also delve into bias detection, transparency, and responsible AI usage. </i>This workshop title and description were written with the help of Google Bard.</i>"
+      },
+      {
+        "title": "Strengthening Biomedical Research Through FAIR Data Principles",
+        "date": "February 14, 2024",
+        "audience": "All researchers",
+        "keyPoints": [
+          "Role of FAIR data principles in biomedical research",
+          "Best practices for data management",
+          "Tools and resources for data sharing"
+        ],
+        "description": "This interactive workshop delves into the FAIR data principles (Findable, Accessible, Interoperable, and Reusable) and their essential role in contemporary biomedical research. Explore practical strategies for data management, discover tools and resources to facilitate ethical and effective data sharing, and learn how FAIR data can enhance collaboration, reproducibility, and the impact of your research. <i>This workshop description was written with the assistance of Google Bard.</i>"
+      },
+      {
+        "title": "Data Management Essentials for Grants",
+        "date": "September 13, 2023",
+        "audience": "Biomedical faculty",
+        "keyPoints": [
+          "Best practices for data management",
+          "What to include in a data management plan",
+          "Introduction to using DMPTool for grant writing"
+        ],
+        "description": "Managing your data before you begin your research and throughout its life cycle is essential to ensure its current usability and long-run preservation and access. In this workshop, we will review best practices for naming, organizing, storing, depositing your research data, and creating a Data Management Plan (DMP). We will also be taking a deep dive into how to use DMPTool to make writing and managing your DMPs easier than ever."
+      }
+    ]
+  }

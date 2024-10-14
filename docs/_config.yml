@@ -24,16 +24,22 @@ description: >- # this means to ignore newlines until "baseurl:"
   Allie Tatarian's professional website, with a focus on research
   data management, AI literacy, and responsible and ethical conduct
   of research. Professional Research & Instruction and Data Librarian.
-baseurl: /docs # the subpath of your site, e.g. /blog
-url: https://allie-tatarian.github.io # the base hostname & protocol for your site, e.g. http://example.com
-domain: allie-tatarian.github.io
+baseurl: "/docs" # the subpath of your site, e.g. /blog
+url: "https://allie-tatarian.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+domain: "allie-tatarian.github.io"
 # twitter_username: jekyllrb
 github_username:  allie-tatarian
 
+collections:
+  sessions:
+    output: true
+
 # Build settings
-theme: minima
-plugins:
-  - jekyll-feed
+# theme: minima
+# plugins:
+#   - jekyll-feed
+markdown: kramdown
+include: ["*.json"]
 
 # Exclude from processing.
 # The following items will not be processed, by default.
