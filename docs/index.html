@@ -4,8 +4,186 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Allie Tatarian - Academic Portfolio</title>
-    <link rel="stylesheet" href="/docs/assets/css/main.css">
-    <script src="/docs/assets/js/load-sessions.js" defer></script>
+    <style>
+      @font-face {
+          font-family: 'Century Gothic';
+          src: url('https://cdnjs.cloudflare.com/ajax/libs/fontawesome-5-css/5.15.4/webfonts/CenturyGothic.woff2') format('woff2');
+          font-weight: normal;
+          font-style: normal;
+      }
+      :root {
+          --primary-color: #3498db;
+          --secondary-color: #2c3e50;
+          --accent-color: #27ae60;
+          --background-color: #f5f7fa;
+          --card-background: #ffffff;
+          --text-color: #34495e;
+          --header-text-color: #ffffff;
+      }
+      body {
+          font-family: 'Century Gothic', Arial, sans-serif;
+          line-height: 1.6;
+          color: var(--text-color);
+          background-color: var(--background-color);
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+      }
+      header {
+          background-color: var(--secondary-color);
+          color: var(--header-text-color);
+          padding: 2rem 0;
+          text-align: center;
+      }
+      header h1 {
+          margin-bottom: 0.5rem;
+          color: var(--header-text-color);
+      }
+      header p {
+          margin: 0;
+          font-size: 1.2rem;
+      }
+      nav {
+          background-color: var(--primary-color);
+          padding: 0.5rem 0;
+      }
+      nav ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+      }
+      nav ul li {
+          margin: 0 15px;
+      }
+      nav ul li a {
+          color: #fff;
+          text-decoration: none;
+          font-weight: bold;
+      }
+      .nav-toggle {
+          display: none;
+      }
+      main {
+          flex: 1;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+      }
+      h1, h2 {
+          font-family: Georgia, serif;
+          color: var(--secondary-color);
+      }
+      .sessions-container {
+          display: grid;
+          gap: 25px;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      .session-card {
+          background-color: var(--card-background);
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 25px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .session-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .session-card h3 {
+          font-family: Georgia, serif;
+          color: var(--primary-color);
+          margin-top: 0;
+          font-size: 1.4em;
+          border-bottom: 2px solid var(--primary-color);
+          padding-bottom: 10px;
+          margin-bottom: 15px;
+      }
+      .session-info {
+          margin-bottom: 12px;
+      }
+      .session-info strong {
+          color: var(--secondary-color);
+      }
+      .key-points {
+          list-style-type: none;
+          padding-left: 0;
+          margin-bottom: 15px;
+      }
+      .key-points li {
+          margin-bottom: 8px;
+          position: relative;
+          padding-left: 20px;
+      }
+      .key-points li::before {
+          content: '•';
+          color: var(--accent-color);
+          position: absolute;
+          left: 0;
+          font-weight: bold;
+      }
+      .description {
+          background-color: #f7f9fa;
+          border-left: 4px solid var(--accent-color);
+          padding: 10px;
+          font-style: italic;
+      }
+      footer {
+          background-color: var(--secondary-color);
+          color: #fff;
+          text-align: center;
+          padding: 1rem 0;
+          margin-top: auto;
+      }
+      footer a {
+          color: lightblue
+      }
+      .social-links {
+          margin-top: 1rem;
+      }
+      .social-links a {
+          color: #fff;
+          margin: 0 10px;
+          text-decoration: none;
+      }
+      @media (max-width: 768px) {
+          main {
+              padding: 15px;
+          }
+          h1 {
+              font-size: 2em;
+          }
+          .session-card {
+              padding: 20px;
+          }
+          nav {
+              text-align: center;
+          }
+          .nav-toggle {
+              display: inline-block;
+              background: none;
+              border: none;
+              color: white;
+              font-size: 1.5rem;
+              cursor: pointer;
+              margin: 0 auto;
+          }
+          nav ul {
+              display: none;
+              flex-direction: column;
+              align-items: center;
+          }
+          nav ul.show {
+              display: flex;
+          }
+          nav ul li {
+              margin: 10px 0;
+          }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -15,13 +193,13 @@
 <nav>
   <button class="nav-toggle">☰</button>
   <ul>
-      <li><a href="/docs/">Home</a></li>
-      <li><a href="/docs/about-me/">About Me</a></li>
-      <li><a href="/docs/presentations/">Presentations</a></li>
-      <li><a href="/docs/sessions/">Instruction Sessions</a></li>
-      <li><a href="/docs/blog/">Blog</a></li>
-      <li><a href="https://picturesque-theory-f87.notion.site/CV-resume-eccd9078b2044dc4a6b9c1875e950318?pvs=4" target="_blank">CV</a></li>
-      <li><a href="/docs/contact/">Contact</a></li>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Me</a></li>
+    <li><a href="#">Presentations</a></li>
+    <li><a href="#">Instruction Sessions</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="https://picturesque-theory-f87.notion.site/CV-resume-eccd9078b2044dc4a6b9c1875e950318?pvs=4" target="_blank">CV</a></li>
+    <li><a href="#">Contact</a></li>
   </ul>
 </nav>
 
@@ -47,5 +225,61 @@
       <a href="https://orcid.org/0000-0003-1468-5373" target="_blank">ORCID</a>
   </div>
 </footer>
+<script>
+  const data = {
+      "sessions": [
+        {
+            "date": "2024-11-06",
+            "topic": "Beyond Traditional Publishing: Accelerating Research Impact with Preprints and Data Articles",
+            "audience": "All researchers",
+            "keyPoints": ["Introduction to preprints", "Introduction to data articles", "Using preprints and data articles to accelerate research dissemination"],
+            "description": "Discover how to amplify the reach and impact of your research beyond traditional journal publishing. This workshop explores two powerful alternatives: preprints and data articles. Learn how these strategies can speed up dissemination, invite earlier feedback, and increase the visibility of both your manuscripts and datasets. The session will provide practical insights into integrating these methods alongside traditional publishing. Join us to expand your toolkit for sharing your valuable contributions swiftly and openly in today's fast-paced scientific landscape. <i>[Title and description written with the help of Claude AI]</i>"
+        },
+        {
+            "date": "2024-04-10",
+            "topic": "AI Literacy for a Changing Biomedical Landscape",
+            "audience": "Graduate students in the biomedical sciences",
+            "keyPoints": ["Fundamental concepts of AI", "Evaluating AI tools", "Practical applications of AI tools"],
+            "description": "In this student-aimed workshop, we will explore the fundamental concepts of AI, learn to evaluate AI tools, and discover practical applications in your everyday life. This interactive workshop will equip you with the skills to confidently navigate the world of machine intelligence. We'll also delve into bias detection, transparency, and responsible AI usage. </i>This workshop title and description were written with the help of Google Bard.</i>"
+        },
+        {
+            "date": "2024-02-14",
+            "topic": "Strengthening Biomedical Research Through FAIR Data Principles",
+            "audience": "All researchers",
+            "keyPoints": ["Role of FAIR data principles in biomedical research", "Best practices for data management", "Tools and resources for data sharing"],
+            "description": "This interactive workshop delves into the FAIR data principles (Findable, Accessible, Interoperable, and Reusable) and their essential role in contemporary biomedical research. Explore practical strategies for data management, discover tools and resources to facilitate ethical and effective data sharing, and learn how FAIR data can enhance collaboration, reproducibility, and the impact of your research. <i>This workshop description was written with the assistance of Google Bard.</i>"
+        },
+        {
+            "date": "2023-09-13",
+            "topic": "Data Management Essentials for Grants",
+            "audience": "Research faculty",
+            "keyPoints": ["Best practices for data management", "What to include in a data management plan", "Introduction to using DMPTool for grant writing"],
+            "description": "Managing your data before you begin your research and throughout its life cycle is essential to ensure its current usability and long-run preservation and access. In this workshop, we will review best practices for naming, organizing, storing, depositing your research data, and creating a Data Management Plan (DMP). We will also be taking a deep dive into how to use DMPTool to make writing and managing your DMPs easier than ever."
+        }
+    ]
+  };
+
+  const container = document.getElementById('sessions-container');
+  data.sessions.forEach(session => {
+      const card = document.createElement('div');
+      card.className = 'session-card';
+      card.innerHTML = `
+          <h3>${session.topic}</h3>
+          <div class="session-info"><strong>Date:</strong> ${session.date}</div>
+          <div class="session-info"><strong>Audience:</strong> ${session.audience}</div>
+          <div class="session-info"><strong>Key Points:</strong></div>
+          <ul class="key-points">
+              ${session.keyPoints.map(point => `<li>${point}</li>`).join('')}
+          </ul>
+          <div class="feedback"><strong>Feedback:</strong> ${session.feedback}</div>
+      `;
+      container.appendChild(card);
+  });
+
+  // Mobile nav toggle
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+      document.querySelector('nav ul').classList.toggle('show');
+  });
+</script>
   </body>
 </html>
