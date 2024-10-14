@@ -125,7 +125,7 @@
             left: 0;
             font-weight: bold;
         }
-        .feedback {
+        .description {
             background-color: #f7f9fa;
             border-left: 4px solid var(--accent-color);
             padding: 10px;
@@ -224,25 +224,32 @@
         const data = {
             "sessions": [
                 {
-                    "date": "2024-01-15",
-                    "topic": "Introduction to Research Data Management",
-                    "audience": "Biology Department",
-                    "keyPoints": ["Data organization", "Metadata best practices", "Storage solutions"],
-                    "feedback": "Very helpful session. Students appreciated practical examples."
+                    "date": "2024-11-06",
+                    "topic": "Beyond Traditional Publishing: Accelerating Research Impact with Preprints and Data Articles",
+                    "audience": "All researchers",
+                    "keyPoints": ["Introduction to preprints", "Introduction to data articles", "Using preprints and data articles to accelerate research dissemination"],
+                    "description": "Discover how to amplify the reach and impact of your research beyond traditional journal publishing. This workshop explores two powerful alternatives: preprints and data articles. Learn how these strategies can speed up dissemination, invite earlier feedback, and increase the visibility of both your manuscripts and datasets. The session will provide practical insights into integrating these methods alongside traditional publishing. Join us to expand your toolkit for sharing your valuable contributions swiftly and openly in today's fast-paced scientific landscape. <i>[Title and description written with the help of Claude AI]</i>"
                 },
                 {
-                    "date": "2024-02-03",
-                    "topic": "AI in Scientific Research",
-                    "audience": "Chemistry Graduate Students",
-                    "keyPoints": ["AI tools for data analysis", "Ethical considerations", "Limitations of AI in research"],
-                    "feedback": "Engaging discussion. Students requested follow-up workshop on specific AI tools."
+                    "date": "2024-04-10",
+                    "topic": "AI Literacy for a Changing Biomedical Landscape",
+                    "audience": "Graduate students in the biomedical sciences",
+                    "keyPoints": ["Fundamental concepts of AI", "Evaluating AI tools", "Practical applications of AI tools"],
+                    "description": "In this student-aimed workshop, we will explore the fundamental concepts of AI, learn to evaluate AI tools, and discover practical applications in your everyday life. This interactive workshop will equip you with the skills to confidently navigate the world of machine intelligence. We'll also delve into bias detection, transparency, and responsible AI usage. </i>This workshop title and description were written with the help of Google Bard.</i>"
                 },
                 {
-                    "date": "2024-03-20",
-                    "topic": "Open Access Publishing",
-                    "audience": "Faculty and Postdocs",
-                    "keyPoints": ["Benefits of open access", "Choosing the right journal", "Navigating publication fees"],
-                    "feedback": "Informative session. Participants found the journal selection advice particularly useful."
+                    "date": "2024-02-14",
+                    "topic": "Strengthening Biomedical Research Through FAIR Data Principles",
+                    "audience": "All researchers",
+                    "keyPoints": ["Role of FAIR data principles in biomedical research", "Best practices for data management", "Tools and resources for data sharing"],
+                    "description": "This interactive workshop delves into the FAIR data principles (Findable, Accessible, Interoperable, and Reusable) and their essential role in contemporary biomedical research. Explore practical strategies for data management, discover tools and resources to facilitate ethical and effective data sharing, and learn how FAIR data can enhance collaboration, reproducibility, and the impact of your research. <i>This workshop description was written with the assistance of Google Bard.</i>"
+                },
+                {
+                    "date": "2023-09-13",
+                    "topic": "Data Management Essentials for Grants",
+                    "audience": "Research faculty",
+                    "keyPoints": ["Best practices for data management", "What to include in a data management plan", "Introduction to using DMPTool for grant writing"],
+                    "description": "Managing your data before you begin your research and throughout its life cycle is essential to ensure its current usability and long-run preservation and access. In this workshop, we will review best practices for naming, organizing, storing, depositing your research data, and creating a Data Management Plan (DMP). We will also be taking a deep dive into how to use DMPTool to make writing and managing your DMPs easier than ever."
                 }
             ]
         };
@@ -259,7 +266,7 @@
                 <ul class="key-points">
                     ${session.keyPoints.map(point => `<li>${point}</li>`).join('')}
                 </ul>
-                <div class="feedback"><strong>Feedback:</strong> ${session.feedback}</div>
+                <div class="description"><strong>description:</strong> ${session.description}</div>
             `;
             container.appendChild(card);
         });
