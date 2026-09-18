@@ -73,3 +73,14 @@ label, input, select {
     transform: translateY(20px);
     /*I had a hard time getting the labels and inputs to align correctly vertically, because any padding or margin I applied to the labels seemed to also lift the inputs up. No idea why. translateY worked to force the inputs down so they align correctly. Got the idea from this Reddit thread: https://www.reddit.com/r/css/comments/14v8mhw/margintop_not_affecting_inlineblock/ */
 }
+
+.socials img {
+    width: 20px;
+    height: auto;
+}
+
+.socials {
+    position: fixed;
+    top: 100px;
+    right: 35px;
+}
