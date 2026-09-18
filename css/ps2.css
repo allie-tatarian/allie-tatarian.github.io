@@ -24,7 +24,7 @@ h2 {
 }
 
 .img {
-    background-image: url("img/latte.jpg");
+    background-image: url("../img/latte.jpg");
     width: 300px;
     height: 300px;
     border-style: solid;
