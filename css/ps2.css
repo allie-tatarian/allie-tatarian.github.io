@@ -1,0 +1,75 @@
+body {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    color: rgb(177, 50, 50);
+    font-size: 32px;
+}
+
+h2 {
+    color: rgb(35, 35, 124);
+    margin-bottom: 30px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+/* From https://www.w3schools.com/css/css_align.asp */
+}
+
+.img {
+    background-image: url("img/latte.jpg");
+    width: 300px;
+    height: 300px;
+    border-style: solid;
+    display: inline-block;
+}
+
+.figcap {
+    display: inline-block;
+    width: calc(100% - 320px);
+    margin: 5px;
+/*I had to set the width of this div too, to get them to go side-by-side. This would look awful in mobile, so I fixed it with the next section.*/
+}
+
+@media screen and (max-width: 480px) {
+    .figcap {
+        width: 100%;
+    }
+    .img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+tr:nth-child(odd) {
+    background-color: lightblue;
+}
+
+.labels {
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+label {
+    padding-bottom: 5px;
+    text-align: right;
+}
+
+
+label, input, select {
+    display: block;
+}
+
+.inputs {
+    display: inline-block;
+    padding-bottom: 20px;
+    transform: translateY(20px);
+    /*I had a hard time getting the labels and inputs to align correctly vertically, because any padding or margin I applied to the labels seemed to also lift the inputs up. No idea why. translateY worked to force the inputs down so they align correctly. Got the idea from this Reddit thread: https://www.reddit.com/r/css/comments/14v8mhw/margintop_not_affecting_inlineblock/ */
+}

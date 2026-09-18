@@ -1,0 +1,93 @@
+<!--CS120 Problem Set 1, Allie Tatarian-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CS120 Problem Set 1</title>
+    <!--From , https://fonts.google.com/selection/embedfor the font "Outfit"-->
+    <link rel="stylesheet" href="css/ps2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Allie Tatarian</h1>
+    <p>I took a trip to Chicago this summer. My wife and I visited for a wedding, and stayed at an AirBnB near O'Hare airport. We we able to visit plenty of museums while we were there, including the Field Museum and Shedd Aquarium.</p>
+
+    <!--I added h2 headings to each section of this assignment, to make each section more visually separated. It also helps with comprehension and usability for screen readers and keyboard users. -->
+    <!--I know this section was supposed to be "favorite pet names," but I decided to go with my own pets instead. I have named exactly 3 pets so it works too well to pass up! -->
+    <h2>Pets I have named</h2>
+    <div class="center">
+        <ul>
+            <li>George the betta fish</li>
+            <li>Rosalind Franklin the calico cat</li>
+            <li>Elton John the orange tabby cat</li>
+        </ul>
+    </div>
+    
+
+    <h2>My favorite restaurant</h2>
+    <p>I'm a pretty big fan of <a href="https://www.lawadessacafe.com/" target="_blank">Lawadessa Caf&eacute;</a>, which is a quick walk from my apartment!</p>
+
+    <h2>My favorite food</h2>
+    <div class="img">
+    </div>
+    <div class="figcap">
+        <p>This is a picture of a homemade version of Starbucks' caramel br&ucirc;l&eacute;e latte. I know it's a drink and not a food but I figured it's close enough! Starbucks only offers this drink in the winter for about 2 months. It is my favorite of their seasonal offerings.</p>
+    </div>
+
+    <!--I made the cells of the top row headings using "th" instead of "td". In my HTML previewer, that automatically bolds and centers the text, which I think is a nice touch. In addition, I used the "cite" tag for the titles, which both italicizes them and acts as a semantic tag to make it clear that those are titles. -->
+    <h2>My favorite books</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Cover</th>
+            <th>Author</th>
+        </tr>
+        <tr>
+            <td><cite>Tomorrow and Tomorrow and Tomorrow</cite></td>
+            <td><img src="https://m.media-amazon.com/images/I/51vcr5seZ8L._SY445_SX342_ML2_.jpg" width=150 /></td>
+            <td>Gabrielle Zevin</td>
+        </tr>
+        <tr>
+            <td><cite>Annihilation</cite></td>
+            <td><img src="https://m.media-amazon.com/images/I/81D8mWNI+7L._SY466_.jpg" width=150 /></td>
+            <td>Jeff VanderMeer</td>
+        </tr>
+        <tr>
+            <td><cite>To Be Taught, If Fortunate</cite></td>
+            <td><img src="https://m.media-amazon.com/images/I/91oi3enb7PL._SY466_.jpg" width=150 /></td>
+            <td>Becky Chambers</td>
+        </tr>
+        <tr>
+            <td><cite>A Scanner Darkly</cite></td>
+            <td><img src="https://m.media-amazon.com/images/I/719VgkANGzL._SY466_.jpg" width=150 /></td>
+            <td>Philip K. Dick</td>
+        </tr>
+    </table>
+
+    <!--I wasn't sure if you actually wanted first and last name separate based on how the assignment is written, but I decided to separate them. I didn't make any of the sections required. I really like using the "form" tag because it helps both semantically and visually. It's not obvious with just HTML, but paired with CSS it makes it easier to give forms a distinct look and feel. -->
+    <h2>Sign My Guestbook</h2>
+    <form>
+        <div class="labels">
+            <label for="fname">First name: </label>
+            <label for="lname">Last name: </label>
+            <label for="email">Email: </label>
+            <label for="state">State:</label>
+        </div>
+        <div class="inputs">
+            <input type="text" name="fname" id="fname" />
+            <input type="text" name="lname" id="lname" />
+            <input type="email" name="email" id="email" />
+            <select name="state" id="state">
+                <option>Massachusetts</option>
+                <option>Rhode Island</option>
+                <option>Connecticut</option>
+                <option>New York</option>
+                <option>Other</option>
+            </select>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+  </body>
+</html>
