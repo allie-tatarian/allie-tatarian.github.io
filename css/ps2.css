@@ -24,10 +24,10 @@ h2 {
 }
 
 .img {
-    background-image: url("../img/latte.jpg");
+    background-image: url("https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Caffe_Latte_at_Pulse_Cafe.jpg/330px-Caffe_Latte_at_Pulse_Cafe.jpg");
+    /*I really struggled getting this to work with the image I had already downloaded, so I gave up and found a new one.*/
     width: 300px;
     height: 300px;
-    border-style: solid;
     display: inline-block;
 }
 
