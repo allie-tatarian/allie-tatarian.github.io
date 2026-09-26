@@ -6,33 +6,143 @@
   </head>
   <body>
 
-    <button onclick="bio()">Click here</button>
+    <!--The button holds the main function that runs the other three functions.-->
+    <button onclick="main()">Run the functions!</button>
+
+    <!--These paragraphs are just placeholders and fill with stuff once the functions run.-->
     <p id="child"></p>
-    <!--Problem 1:  Ask the user for their first name.  Now ask the user for their last name.  (You will need to use prompt() twice). Display the response in a popup (alert) as:  "Your name is <name>" - filling in their full name. 
 
-    Now ask the user for the number of children they have. Display the number of children on the page as a grammatically correct sentence ( “You have no children”, “You have 1 child” or “You have 2 children”, etc). Note - this should be displayed on the page (not in a popup)-->
-
-    <p id="three"></p>
-    <!--Problem 2:  Create a program that gets three numbers using prompt() and displays them in the console in order (smallest to largest).  You may not use  a sort function (other than what you create yourself)-->
+    <p id="sort"></p>
 
     <p id="range"></p>
-    <!--Problem 3:  Get two numbers from the user using prompt() that will represent a range (ex., 2 through 20).  Display only odd numbers in the range on the page.  Then display the sum of all of the numbers in the range on the page.  You must do this using only one loop.-->
+    
     <script>
         function bio() {
             let fname = prompt("What is your first name?");
             let lname = prompt("What is your last name?");
-            alert("Your name is ", fname, lname);
+            alert("Your name is  " + fname + " " + lname);
             let kids = prompt("How many children do you have?");
             if (kids == 0) {
-                alert("You have no children.")
+                document.getElementById("child").innerHTML = "You have no children.";
             }
             if (kids == 1) {
-                alert("You have 1 child.")
+                document.getElementById("child").innerHTML = "You have 1 child.";
             }
             if (kids > 1) {
-                alert("You have ", kids, " children.")
+                document.getElementById("child").innerHTML = "You have " + kids + " children.";
+            }
+            // Including in case something weird is input here
+            if (kids < 0 || isNaN(kids)) {
+                document.getElementById("child").innerHTML = "How??";
             }
         }
+
+        function three () {
+            let n1 = prompt("Give me a number: ");
+            if (isNaN(n1)) { // Gives one chance to correct for each
+                n1 = prompt("I need a number!");
+            }
+            let n2 = prompt("Give me another number: ");
+            if (isNaN(n2)) {
+                n2 = prompt("I need a number!");
+            }
+            let n3 = prompt("Give me one last number: ");
+            if (isNaN(n3)) {
+                n3 = prompt("I need a number!");
+            }
+            // Just in case any end up without a number
+            if (isNaN(n1 + n2 + n3)) {
+                document.getElementById("sort").innerHTML = "I can't sort these!";
+            }
+
+            // This stops JS from being silly when sorting - otherwise it does weird things like saying 41 < 7 because it starts with 4.
+            n1 = Number(n1);
+            n2 = Number(n2);
+            n3 = Number(n3);
+
+            // This is SUCH an inelegant way to sort, but with only three numbers, I don't feel too bad about doing this. I wouldn't try this with 4 inputs, though!
+            if (n1 < n2) {
+                if (n3 < n1) {
+                    document.getElementById("sort").innerHTML = n3 + " " + n1 + " " + n2;
+                }
+                if (n3 > n2) {
+                    document.getElementById("sort").innerHTML = n1 + " " + n2 + " " + n3;
+                }
+                if (n3 > n1 && n3 < n2) {
+                    document.getElementById("sort").innerHTML = n1 + " " + n3 + " " + n2;
+                }
+            }
+            if (n1 > n2) {
+                if (n3 < n2) {
+                    document.getElementById("sort").innerHTML = n3 + " " + n2 + " " + n1;
+                }
+                if (n3 > n1) {
+                    document.getElementById("sort").innerHTML = n2 + " " + n1 + " " + n3;
+                }
+                if (n3 > n2 && n3 < n1) {
+                    document.getElementById("sort").innerHTML = n2 + " " + n3 + " " + n1;
+                }
+            }
+        }
+
+        function odds () {
+            let x = prompt("Give me a number:");
+            if (isNaN(x)) {
+                x = prompt("I need a number!");
+            }
+            let y = prompt("Give me another number:");
+            if (isNaN(y)) {
+                y = prompt("I need a number!");
+            }
+            // Just like in the last function, it gives you a second chance if you give it a non-number, and then has a failsafe if you still didn't give it two numbers.
+            if (isNaN(x + y)) {
+                document.getElementById("range").innerHTML = "I can't work with this...";
+            }
+
+            // This keeps JS from doing goofy things with the arithmetic (2 + 1 is not 21!).
+            x = Number(x);
+            y = Number(y);
+
+            // This just forces x to be the smaller number, to make the rest easier. If y is smaller, x and y swap.
+            if (y < x) {
+                let a = y;
+                y = x;
+                x = a;
+            }
+
+            // If x is even, this makes it the next odd number. This makes the loop easier, so it doesn't test evenness every time.
+            if (x % 2 == 0) {
+                x += 1;
+            }
+            
+            // Setting the variable to sum up all of the printed numbers, and a variable to hold the text. I got the latter idea from w3schools.
+            let sum = 0;
+            let text = "";
+
+            // My while loop - this starts with an odd number, either x or the next number. It prints x and then a line break, adds that number to the sum, and then adds 2 to x, to get to the next odd. It stops when x > y to keep the numbers in the range.
+            while (x <= y) {
+                text += x + "<br />";
+                sum = sum + x;
+                x += 2;
+            }
+
+            // Once the while loop ends, the sum prints on the next line.
+            text += "<br>The sum of the numbers is " + sum + ".";
+
+            document.getElementById("range").innerHTML = text;
+        }
+
+        function main () {
+            // When the button is pressed, the three functions all run one after another. The "confirm" lines make a box pop up explaining the function. Hitting "cancel" doesn't stop the next function, though.
+            confirm("This is the first function. It asks for your name and how many children you have.")
+			let b = bio();
+            confirm("This is the second function. It asks for three numbers, which it will then sort for you.")
+            let t = three();
+            confirm("This is the third function. It asks for two numbers, which it will use as a range. It will display all of the odd numbers between your two numbers (inclusive), and then their sum.")
+            let o = odds();
+
+        }
+
     </script>
   </body>
 </html>
