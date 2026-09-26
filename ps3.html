@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CS120 Problem Set 3</title>
+  </head>
+  <body>
+
+    <button onclick="bio()">Click here</button>
+    <p id="child"></p>
+    <!--Problem 1:  Ask the user for their first name.  Now ask the user for their last name.  (You will need to use prompt() twice). Display the response in a popup (alert) as:  "Your name is <name>" - filling in their full name. 
+
+    Now ask the user for the number of children they have. Display the number of children on the page as a grammatically correct sentence ( “You have no children”, “You have 1 child” or “You have 2 children”, etc). Note - this should be displayed on the page (not in a popup)-->
+
+    <p id="three"></p>
+    <!--Problem 2:  Create a program that gets three numbers using prompt() and displays them in the console in order (smallest to largest).  You may not use  a sort function (other than what you create yourself)-->
+
+    <p id="range"></p>
+    <!--Problem 3:  Get two numbers from the user using prompt() that will represent a range (ex., 2 through 20).  Display only odd numbers in the range on the page.  Then display the sum of all of the numbers in the range on the page.  You must do this using only one loop.-->
+    <script>
+        function bio() {
+            let fname = prompt("What is your first name?");
+            let lname = prompt("What is your last name?");
+            alert("Your name is ", fname, lname);
+            let kids = prompt("How many children do you have?");
+            if (kids == 0) {
+                alert("You have no children.")
+            }
+            if (kids == 1) {
+                alert("You have 1 child.")
+            }
+            if (kids > 1) {
+                alert("You have ", kids, " children.")
+            }
+        }
+    </script>
+  </body>
+</html>
