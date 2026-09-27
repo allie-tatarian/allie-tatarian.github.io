@@ -65,7 +65,15 @@ body {
 }
 
 .heading {
-    background-image: url(https://allie-tatarian.github.io/project1/img/party.jpg);
+    background:
+    /*Trying to darken the background image. Idea from https://stackoverflow.com/questions/23208200/how-to-darken-a-background-using-css*/
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        /* bottom, image */
+        url(https://allie-tatarian.github.io/project1/img/party.jpg);
     background-color: darkblue;
     height: 150px;
     padding: 50px;    
@@ -102,6 +110,7 @@ main {
 
 .band-img {
     float: left;
+    margin: 10px;
 }
 
 .blurb {
