@@ -1,0 +1,106 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head>   
+        <meta charset="UTF-8" />   
+        <title>The Lorem Ipsums</title>   
+        <meta name="viewport" content="width=device-width,initial-scale=1" />    
+        <link rel="stylesheet" type="text/css" href="css/style.css" />  
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+        <style>
+            
+            .container {
+                background-color: lightgray;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .form-title, .form-description {
+                text-align: center;
+                color: darkblue;
+            }
+
+            .form-title {
+                margin-top: -5px;
+                margin-bottom: -5px;
+                font-size: 30px;
+            }
+
+            .form-description {
+                font-style: italic;
+                font-size: 15px;
+            }
+            
+            form {
+                border: 1px solid gray;
+                border-radius: 5px;
+                padding: 10px;
+            }
+
+            textarea {
+                width: 95%;
+            }
+
+            input, textarea {
+                background-color: #ffffffaa; /*This makes it so the background is still white, but a little transparent.*/
+                border: 1px solid gray;
+                border-radius: 5px; /*Styling makes the contact form area consistent*/
+            }
+
+            label {
+                display: block; /*Lines up the labels and inputs nicely*/
+                padding: 5px;
+                font-size: 15px;
+            }
+
+            label:first-child {
+                margin-top: -5px; /*The spacing at the top of the form looked a little funny to me, this helped.*/
+            }
+
+            button { /*Makes the button a little bigger and centers it*/
+                display: block;
+                margin: auto;
+                padding: 5px;
+                margin-top: 10px;
+                font-size: 20px;;
+            }
+        </style>
+    </head> 
+    <body>   
+
+        <header>
+            <nav class="nav" id="nav">    
+            <a href="/index.html">Home</a>    
+            <a href="/about.html">About the Lorem Ipsums</a>    
+            <a href="/schedule.html">Calendar of Events</a>    
+            <a href="#">Contact Us!</a>    
+            </nav>  
+            <div class="heading">
+                <h1 class="title">The Lorem Ipsums</h1>  
+                <p class="subtitle">The best choice for a little fun at your upcoming wedding.</p>
+            </div>
+        </header>
+
+        <main class="container">
+            <h2 class="form-title">Contact us!</h2>
+            <p class="form-description">Use this form if you want to talk about our work, booking dates, or anything else!</p>
+            <form>
+                <label for="name">Your name:  </label><input type="text" name="name" id="name" required />
+                <label for="email">Your email:  </label><input type="email" name="email" id="email" required />
+                <label for="request">What do you want to talk with us about?</label><textarea name="request" id="request" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+        
+        <footer class="footer">    
+            <p>The Lorem Ipsums</p>
+            <p>Serving Eastern MA and all of RI</p>
+            <p>Email us: lorem-ipsums@realemail.com</p>
+            <p>Call or text: 555-555-5555</p>
+            <a href="https://www.facebook.com/" target="_blank"><img src="img/Facebook.png" alt="Facebook icon" class="social-icon"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="img/Instagram.png" alt="Instagram icon" class="social-icon"></a>
+            <a href="https://www.tiktok.com/" target="_blank"><img src="img/Tiktok.svg" alt="TikTok icon" class="social-icon"></a>
+        </footer>  
+    </body> 
+</html>
