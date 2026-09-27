@@ -6,45 +6,6 @@ body {
     background-color: lightgray;
 }
 
-@media only screen and (max-width: 700px) {
-    /*A lot of the navbar styling is taken from the w3schools navbar tutorial: https://www.w3schools.com/Css/css_navbar.asp
-    This particular section styles a vertical navbar for mobile*/
-    .nav ul {
-        width: 100%;
-    }
-    .nav li a {
-        display: block;
-        color: white;
-        padding: 10px 16px;
-        text-decoration: none;
-        text-align: center;
-        font-size: 15px;
-    }
-
-    .nav li a:hover {
-        background-color: rgb(54, 54, 199);
-    }
-    .nav {
-        margin: 10px 0;
-
-    }
-
-    .front-page {
-        width: 100%;
-    }
-
-    .band-img {
-        display: block;
-        margin: 5px;
-        max-width: 100%;
-    }
-
-    .blurb {
-        display: block;
-        margin: 5px 0px 5px 0px;
-    }
-}
-
 .nav ul {
     list-style-type: none;
     margin: 0;
@@ -239,4 +200,43 @@ p {
 
 .bold {
     font-weight: bold;
+}
+
+@media only screen and (max-width: 1000px) {
+    /*A lot of the navbar styling is taken from the w3schools navbar tutorial: https://www.w3schools.com/Css/css_navbar.asp
+    This particular section should style a vertical navbar for mobile - it has not been working consistently, though.*/
+    .nav ul {
+        width: 100%;
+    }
+    .nav li a {
+        display: block;
+        color: white;
+        padding: 10px 16px;
+        text-decoration: none;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .nav li a:hover {
+        background-color: rgb(54, 54, 199);
+    }
+    .nav {
+        margin: 10px 0;
+
+    }
+
+    .front-page {
+        width: 100%;
+    }
+
+    .band-img {
+        display: block;
+        margin: 5px;
+        max-width: 100%;
+    }
+
+    .blurb {
+        display: block;
+        margin: 5px 0px 5px 0px;
+    }
 }
