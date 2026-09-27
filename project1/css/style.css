@@ -6,7 +6,7 @@ body {
     background-color: lightgray;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     /*A lot of the navbar styling is taken from the w3schools navbar tutorial: https://www.w3schools.com/Css/css_navbar.asp
     This particular section styles a vertical navbar for mobile*/
     .nav ul {
@@ -22,11 +22,15 @@ body {
     }
 
     .nav li a:hover {
-        background-color: blue;
+        background-color: rgb(54, 54, 199);
     }
     .nav {
         margin: 10px 0;
 
+    }
+
+    .front-page {
+        width: 100%;
     }
 
     .band-img {
@@ -36,7 +40,7 @@ body {
 
     .blurb {
         display: block;
-        margin: 5px;
+        margin: 5px 0px 5px 0px;
     }
 }
 
@@ -45,7 +49,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: midnightblue;
+    background-color: rgb(27, 27, 82);
 }
 
 .nav ul li {
@@ -93,8 +97,8 @@ body {
 }
 
 .subtitle {
-    font-style: italic;
     font-size: 20px;
+    font-style: italic;
 }
 
 main {
@@ -144,7 +148,8 @@ main {
 }
 
 footer {
-    background-color: lightblue;
+    background-color: rgb(27, 27, 82);
+    color: white;
     padding-left: 15px;
     padding-top: 1px;
     padding-bottom: 10px;
@@ -159,4 +164,19 @@ footer p:first-child {
 .social-icon {
     width: 20px;
     height: auto;
+}
+
+td {
+    margin-right: 5px;
+}
+
+.line-dance {
+    background-color: yellow;
+}
+
+.line-dance::before {
+    content: "! ";
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
 }
