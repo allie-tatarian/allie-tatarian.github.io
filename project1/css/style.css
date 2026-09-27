@@ -1,0 +1,147 @@
+body {
+                font-family: "Outfit", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+                background-color: lightgray;
+            }
+
+            @media only screen and (max-width: 600px) {
+                /*A lot of the navbar styling is taken from the w3schools navbar tutorial: https://www.w3schools.com/Css/css_navbar.asp
+                This particular section styles a vertical navbar for mobile*/
+                .nav ul {
+                    width: 100%;
+                }
+                .nav li a {
+                    display: block;
+                    color: white;
+                    padding: 10px 16px;
+                    text-decoration: none;
+                    text-align: center;
+                    font-size: 15px;
+                }
+
+                .nav li a:hover {
+                    background-color: blue;
+                }
+                .nav {
+                    margin: 10px 0;
+
+                }
+
+                .band-img {
+                    display: block;
+                    margin: 5px;
+                }
+
+                .blurb {
+                    display: block;
+                    margin: 5px;
+                }
+            }
+
+            .nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: midnightblue;
+            }
+
+            .nav ul li {
+                float: left;
+            }
+
+            .nav ul li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            .nav ul li a:hover {
+                background-color: blue;
+            }
+
+            .heading {
+                background-image: url(https://allie-tatarian.github.io/project1/img/party.jpg);
+                background-color: darkblue;
+                height: 150px;
+                padding: 50px;                
+            }
+
+            .title, .subtitle {
+                text-align: center;
+                color: white;
+            }
+
+            .title {
+                font-size: 50px;
+                margin-top: -15px;
+            }
+
+            .subtitle {
+                font-style: italic;
+                font-size: 20px;
+            }
+
+            main {
+                width: 85%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .front-page {
+                display: inline-block;
+
+            }
+
+            .band-img {
+                float: left;
+            }
+
+            .blurb {
+                font-size: 15px;
+            }
+
+            .testimonials {
+                color: white;
+                background-color: darkblue;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .testimonials h2 {
+                text-align: center;
+            }
+
+            .quote {
+                font-style: italic;
+                padding: 15px;
+                font-size: 15px;
+            }
+
+            .name {
+                color: lightgray;
+                padding-left: 20px;
+                font-weight: bold;
+            }
+
+            footer {
+                background-color: lightblue;
+                padding-left: 15px;
+                padding-top: 1px;
+                padding-bottom: 10px;
+                margin-top: 10px;
+                width: 100%;
+            }
+
+            footer p:first-child {
+                font-weight: bold;
+            }
+
+            .social-icon {
+                width: 20px;
+                height: auto;
+            }
