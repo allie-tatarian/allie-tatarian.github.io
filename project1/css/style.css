@@ -131,7 +131,7 @@ main {
     font-size: 15px;
 }
 
-.testimonials h2 {
+h2 {
     text-align: center;
     font-size: 30px;
 }
@@ -165,10 +165,6 @@ footer p:first-child {
 .social-icon {
     width: 20px;
     height: auto;
-}
-
-.about h2 {
-    font-size: 30px;
 }
 
 .about p {
@@ -207,4 +203,40 @@ td,th {
     padding:12px 15px;
     border:1px solid #ddd;
     font-size:16px
+}
+
+p {
+    font-size: 16px;
+}
+
+.availability p {
+    font-style: italic;
+}
+
+.next {
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(188, 81, 81);
+}
+
+.dates li {
+    font-size: 15px;
+    padding: 3px;
+}
+
+.public {
+    width: 80%;
+}
+.event {
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.nested-list li {
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.bold {
+    font-weight: bold;
 }
