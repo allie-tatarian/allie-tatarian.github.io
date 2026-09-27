@@ -167,17 +167,44 @@ footer p:first-child {
     height: auto;
 }
 
-td {
-    margin-right: 5px;
+.about h2 {
+    font-size: 30px;
+}
+
+.about p {
+    font-size: 18px;
 }
 
 .line-dance {
-    background-color: yellow;
+    /*I thought it would be cute and silly to make the line dances stand out.*/
+    background-color: rgb(251, 251, 141);
+    font-size: 16px; /*This is mostly redundant, but does make the key paragraph above the table match.*/
 }
 
 .line-dance::before {
     content: "! ";
     color: red;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
+}
+
+td {
+    /*padding-right: 20px;*/
+}
+
+.songs {
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td,th {
+    padding:12px 15px;
+    border:1px solid #ddd;
+    font-size:16px
 }
