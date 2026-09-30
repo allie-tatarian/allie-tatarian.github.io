@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CS120 Problem Set 4</title>
+  </head>
+  <body>
+
+    <div id="answer"></div>
+    
+    <script>
+
+// countA takes in two parameters - first an array of numbers, and then a target number.
+function countA(array, target) { 
+	count1 = 0; // Initializes the count
+	for (let i = 0; i < array.length; i++) { //starts a loop around the array of numbers
+  		if (array[i] < target) { // if this index of the array is less than the target number...
+        	count1 ++ // ...add one to the count
+        }
+	} 
+    return count1;
+}
+
+// countB takes the same parameters as countA
+function countB(array, target) {
+	count2 = array.filter(item => item < target); // This filter takes every item in the array and adds them to count if they are less than the target number.
+    let a = count2.length; // This gets the number of numbers in count2.
+    return a;
+}
+
+function testCount() {
+    arr = [5, 10, 7, 15, 20];
+	value = 12;
+    // x and y call countA and countB, respectively, using the array and target above.
+    x = countA(arr, value);
+	y = countB(arr, value);
+    // Prints the values of x and y, separated by a line break.
+    document.getElementById("answer").innerHTML = x + "<br />" + y;
+}
+
+// Calls the function testCount() when the page is loaded.
+let a = testCount();
+
+    </script>
+  </body>
+</html>
