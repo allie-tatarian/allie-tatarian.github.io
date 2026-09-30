@@ -9,7 +9,11 @@
     <div id="answer"></div>
     
     <script>
-        
+        names = "Pat, Chris, Marlon, Ferncroft, Assunta";
+
+        list = names.split(', ').join('</li><li>');
+
+        document.getElementById("answer").innerHTML = "<ol><li>" + list + "</li></ol>";
 
     </script>
   </body>
