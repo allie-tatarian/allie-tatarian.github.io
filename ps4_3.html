@@ -6,10 +6,30 @@
   </head>
   <body>
 
+    <form>
+        <label for="name">Name: </label><input type="string" name="name" id="name" onchange="nameInput(name)" /><br />
+        <input type="button" value="Hello" onclick="speak('Hello')"><br />
+        <input type="button" value="Goodbye" onclick="speak('Goodbye')"><br />
+        <input type="button" value="Greetings" onclick="speak('Greetings')"><br />
+    </form>
     <div id="answer"></div>
     
     <script>
+
+        // I have to update this code to assign during window-onload instead of onclick! Probably also need to do getAttribute on the value of each button.
         
+        name = ""
+
+        // I got this idea from https://forum.freecodecamp.org/t/transfering-the-value-from-html-input-element-into-javascript/696123
+        // This function takes what is in the input and assigns it to the variable "name"
+        function myFunction(e) {
+            name = e.target.value;
+            return name;
+        }
+        
+        function speak(prefix) {
+            document.getElementById("answer").innerHTML = prefix + ", " + name;
+        }
 
     </script>
   </body>
