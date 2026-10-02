@@ -6,31 +6,28 @@
   </head>
   <body>
 
-    <form>
-        <label for="name">Name: </label><input type="string" name="name" id="name" onchange="nameInput(name)" /><br />
-        <input type="button" value="Hello" onclick="speak('Hello')"><br />
-        <input type="button" value="Goodbye" onclick="speak('Goodbye')"><br />
-        <input type="button" value="Greetings" onclick="speak('Greetings')"><br />
+    <form name="form">
+        <label for="name">Name: </label><input type="string" name="name" id="name"/><br />
+        <input type="button" id="hello" value="Hello"><br />
+        <input type="button" id="goodbye" value="Goodbye"><br />
+        <input type="button" id="greetings" value="Greetings"><br />
     </form>
     <div id="answer"></div>
     
     <script>
-
-        // I have to update this code to assign during window-onload instead of onclick! Probably also need to do getAttribute on the value of each button.
-        
-        name = ""
-
-        // I got this idea from https://forum.freecodecamp.org/t/transfering-the-value-from-html-input-element-into-javascript/696123
-        // This function takes what is in the input and assigns it to the variable "name"
-        function myFunction(e) {
-            name = e.target.value;
-            return name;
-        }
-        
+        // This code first grabs whatever is in the form box and applies it to variable "name." Then, it grabs the "answer" div and puts in the prefix specified, followed by a comma, space, and the name variable. I added ! because I thought it looked wierd with no punctuation.
         function speak(prefix) {
-            document.getElementById("answer").innerHTML = prefix + ", " + name;
+          name = document.form.name.value;
+          document.getElementById("answer").innerHTML = prefix + ", " + name + "!";
         }
 
+        // I was having a VERY hard time getting the event listeners to work with the speak(prefix) function. I eventually found this method of using () => to make it work in a comment on this Reddit thread: https://www.reddit.com/r/learnjavascript/comments/twljtu/how_do_i_pass_arguments_to_a_function_inside/
+        // Once the page loads, the three event listeners wait until the buttons are clicked to run the speak() function. It grabs the button by it's id, and once it is clicked, runs speak() with the proper prefix.
+      window.onload = function () {
+        document.getElementById("hello").addEventListener("click", () => speak('Hello'));
+        document.getElementById("goodbye").addEventListener("click", () => speak('Goodbye'));
+        document.getElementById("greetings").addEventListener("click", () => speak('Greetings'));
+      }
     </script>
   </body>
 </html>
