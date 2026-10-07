@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Problem Set 5</title>
+  </head>
+  <body>
+    <div id="json-data"></div>
+    <div id="json-parsed"></div>
+    <script language="javascript">
+      // Copied this directly from json09_get.html and then modified. 
+      // Replaced the "get" URL with the URL pointing to my data.
+      // Replaced the <ul> tags with <div> tags for the formatted songs
+      // Updated the HTML in the formatting section to make it not a list.
+      $.get( "https://allie-tatarian.github.io/songs.json", 
+			function( data ) {
+				console.log('raw data\n'+ data)
+				str = JSON.stringify(data);		//data is a json object
+				document.getElementById('json-data').innerHTML = str;
+				console.log('string data\n'+ str)
+
+				str = "<div>";
+				data.forEach(function(songs) { 
+				str += "<b>" 
+					+ songs.title + "</b><br />Artist: " 
+					+ songs.artist + "<br />Genre: "
+          + songs.genre + "<br />Released "
+          + songs.release_year + "<br /><br />";
+				}) 
+	str += "</div>";
+	document.getElementById('json-parsed').innerHTML = str;  
+	})
+    </script>
+  </body>
+</html>
