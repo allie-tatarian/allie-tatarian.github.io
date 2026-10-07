@@ -9,47 +9,43 @@
     <script language="javascript">
       // All songs came from the Wikipedia page "List of best-selling singles," 
       // and all of the genre data was taken from the Wikipedia pages of the respective songs.
-      // Genre and artist data are stored in arrays at the top of the JSON, 
-      // and the data for each song is in its own JSON object in an array of songs.
+      // The data for each song is in its own JSON object in an array of songs.
       // The file songs.json is set up exactly the same, except without the variable call at the beginning.
       // (Putting this info here because you can't comment in a JSON file)
-      songs = { "genres": ["bitpop", "bubblegum pop", "dance-pop", "electropop", "house", "new wave", "nu-disco", "pop", "pop-trap", "rhythm and blues", "soul", "synth-pop", "synthwave", "teen pop"],
-  "artists": ["Adele", "Billie Eilish", "Carly Rae Jepsen", "Kesha", "Lady Gaga", "Madonna", "the Weeknd", "Whitney Houston"],
-  "songs": [
-    {"title": "Born This Way",
-    "artist": "Lady Gaga",
-    "release_year": 2011,
-    "genre": ["electropop", "house"]},
-    {"title": "Rolling in the Deep",
-    "artist": "Adele",
-    "release_year": 2010,
-    "genre": ["rhythm and blues", "soul"]},
-    {"title": "I Will Always Love You",
-    "artist": "Whitney Houston",
-    "release_year": 1992,
-    "genre": ["pop", "soul", "rhythm and blues"]},
-    {"title": "Vogue",
-    "artist": "Madonna",
-    "release_year": 1990,
-    "genre": ["house"]},
-    {"title": "Call Me Maybe",
-    "artist": "Carly Rae Jepsen",
-    "release_year": 2011,
-    "genre": ["pop", "teen pop", "dance-pop", "bubblegum pop", "nu-disco"]},
-    {"title": "Tik Tok",
-    "artist": "Kesha",
-    "release_year": 2009,
-    "genre": ["dance-pop", "electropop", "bitpop"]},
-    {"title": "Bad Guy",
-    "artist": "Billie Eilish",
-    "release_year": 2019,
-    "genre": ["dance-pop", "electropop", "pop-trap"]},
-    {"title": "Blinding Lights",
-    "artist": "the Weeknd",
-    "release_year": 2019,
-    "genre": ["synth-pop", "electropop", "dance-pop", "new wave", "synthwave"]}
-  ]
-}
+      songs = [
+                {"title": "Born This Way",
+                "artist": "Lady Gaga",
+                "release_year": 2011,
+                "genre": ["electropop", "house"]},
+                {"title": "Rolling in the Deep",
+                "artist": "Adele",
+                "release_year": 2010,
+                "genre": ["rhythm and blues", "soul"]},
+                {"title": "I Will Always Love You",
+                "artist": "Whitney Houston",
+                "release_year": 1992,
+                "genre": ["pop", "soul", "rhythm and blues"]},
+                {"title": "Vogue",
+                "artist": "Madonna",
+                "release_year": 1990,
+                "genre": ["house"]},
+                {"title": "Call Me Maybe",
+                "artist": "Carly Rae Jepsen",
+                "release_year": 2011,
+                "genre": ["pop", "teen pop", "dance-pop", "bubblegum pop", "nu-disco"]},
+                {"title": "Tik Tok",
+                "artist": "Kesha",
+                "release_year": 2009,
+                "genre": ["dance-pop", "electropop", "bitpop"]},
+                {"title": "Bad Guy",
+                "artist": "Billie Eilish",
+                "release_year": 2019,
+                "genre": ["dance-pop", "electropop", "pop-trap"]},
+                {"title": "Blinding Lights",
+                "artist": "the Weeknd",
+                "release_year": 2019,
+                "genre": ["synth-pop", "electropop", "dance-pop", "new wave", "synthwave"]}
+              ]
 
       // Very simple - turns the JSON variable into a string and prints it on the page.
       strSongs = JSON.stringify(songs);
