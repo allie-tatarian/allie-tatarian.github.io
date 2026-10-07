@@ -15,24 +15,34 @@
       // Updated the HTML in the formatting section to make it not a list.
       $.get( "https://allie-tatarian.github.io/songs.json", 
 			function( data ) {
-        // Right now I'm trying to see if I can just get it to print as is!
 
-				//console.log('raw data\n'+ data)
+        //Turns the data into a string and prints it in the div with ID "json-data."
 				str = JSON.stringify(data);		//data is a json object
 				document.getElementById('json-data').innerHTML = str;
-				//console.log('string data\n'+ str)
 
+        //These two lines pull JUST the song data from the JSON file.
+        //First, it turns ONLY the song array into a string,
+        //then, it turns that string back into its own JSON object.
+        let songList = JSON.stringify(data.songs);
+        let obj = JSON.parse(songList);
+
+        //This loop prints the data for each song. 
+        // First, the string variable str adds a line break and puts everything in a div.
+        // Then, for each song in the array, it pulls out all of the data
+        // and parses it into easy-to-read HTML.
+        // finally, the str variable adds a closing div tag and the entire
+        // string prints to the div with ID "json-parsed"
 				str = "<br /><div>";
-				data.forEach(function(songs) { 
+				obj.forEach(function(songs) { 
 				str += "<b>" 
 					+ songs.title + "</b><br />Artist: " 
 					+ songs.artist + "<br />Genre: "
           + songs.genre + "<br />Released "
           + songs.release_year + "<br /><br />";
 				}) 
-	str += "</div>";
-	document.getElementById('json-parsed').innerHTML = str;  
-	})
+        str += "</div>";
+        document.getElementById('json-parsed').innerHTML = str;  
+        })
     </script>
   </body>
 </html>

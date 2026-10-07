@@ -1,4 +1,7 @@
-[
+{
+  "genres": ["bitpop", "bubblegum pop", "dance-pop", "electropop", "house", "new wave", "nu-disco", "pop", "pop-trap", "rhythm and blues", "soul", "synth-pop", "synthwave", "teen pop"],
+  "artists": ["Adele", "Billie Eilish", "Carly Rae Jepsen", "Kesha", "Lady Gaga", "Madonna", "the Weeknd", "Whitney Houston"],
+  "songs": [
     {"title": "Born This Way",
     "artist": "Lady Gaga",
     "release_year": 2011,
@@ -31,4 +34,4 @@
     "artist": "the Weeknd",
     "release_year": 2019,
     "genre": ["synth-pop", "electropop", "dance-pop", "new wave", "synthwave"]}
-  ]
+  ]}

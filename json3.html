@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <title>Problem Set 5</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <body>
     <form>
-      <select id="song-genres">
+      <select id="mySelect">
         <div id="genre-list"></div>
       </select>
+      <button id="btn">Filter</button>
     </form>
-    <div id="json-data"></div>
-    <div id="json-parsed"></div>
+    <div id="song-titles"></div>
     <script language="javascript">
       // Copied this directly from json09_get.html and then modified. 
       // Replaced the "get" URL with the URL pointing to my data.
@@ -21,24 +22,50 @@
 			function( data ) {
 				console.log('raw data\n'+ data)
 				str = JSON.stringify(data);		//data is a json object
-				//document.getElementById('json-data').innerHTML = str;
-				//console.log('string data\n'+ str)
-        //I don't think I will need those two lines for this one?
 
 
-        // This didn't work!! Will try more later.
+                //Step one: Getting genres into select. This works in the same way as problem 4 from problem set 4.
+                // First, we stringify JUST the genre info from the JSON file.
+                // Then, we split the genre info by [","], which is in-between each genre in the list.
+                // It's written like "\",\"" to escape the double quotes. The slice(2, -2) is to 
+                // trim the leading and trailing [" and "].
+                // Then, the genres are joined together with option tags and put between the select tags.
+                genres = JSON.stringify(data.genres);
+                genres = genres.split("\",\"").join("</option><option>").slice(2, -2);
+                document.getElementById('genre-list').innerHTML = "<option>" + genres + "</option>";
+                
+
+                // Same as json2.html, this lets us just get the song list from the JSON file.
+                let songList = JSON.stringify(data.songs);
+        		    let obj = JSON.parse(songList);
+                
+                //This is the event listener for the button
+                document.getElementById("btn").addEventListener("click", songTitles);
+                
+                //Once the button is clicked, the function will grab the selected option from the select.
+                // This works in the same way as in ps4_4.html, and the option selected is stored in selectedValue.
+                // Then, we loop through the songs. At each step of the loop, we loop through the genres (the for loop).
+                // At each step of the genre loop, if the genre is the same as the one selected, the song is added to the list.
+                // Finally, the list of songs is printed in the div with id "song-titles"
+                function songTitles() {
+                	str = "<br /><div>";
+                    var select = document.getElementById("mySelect");
+                    var selectedIndex = select.selectedIndex;
+                    var options = select.options;
+                    var selectedValue = options[selectedIndex].value;
+                    obj.forEach(function(songs) {
+                      for (let i=0; i < songs.genre.length; i++) {
+                          if (songs.genre[i] == selectedValue) {
+                              str += songs.title + "<br />";
+                              }
+                          }
+                    }) 
+                   str += "</div>";
+                    document.getElementById('song-titles').innerHTML = str;  
+                }
+
+				
         
-        // I am trying to take each genre from my list and put them in an array.
-        // I want to do it like this because I think I can remove duplicates easier this way.
-        // From https://medium.com/@garyfrost4321/7-ways-to-remove-array-duplicates-in-javascript-67c3dead219a
-
-        //Simplified to just listing all of the genres in the drop down for now...
-				str = "";
-				data.forEach(function(songs) { 
-				str += "<option>" 
-					+ songs.genre + "</option>";
-				}) 
-	document.getElementById('genre-list').innerHTML = str; 
 	})
     </script>
   </body>
