@@ -40,7 +40,11 @@
         		    let obj = JSON.parse(songList);
                 
                 //This is the event listener for the button
-                document.getElementById("btn").addEventListener("click", songTitles);
+                // For some reason the button was causing the page to reload, too? 
+                // The event.preventDefault() prevents the page from reloading.
+                // Got this from a comment on another Reddit thread:
+                // https://www.reddit.com/r/learnjavascript/comments/1iqfzq1/onsubmit_seemingly_refreshing_the_page_when_i/
+                document.getElementById("btn").addEventListener("click", (event)=>{event.preventDefault(); songTitles()});
                 
                 //Once the button is clicked, the function will grab the selected option from the select.
                 // This works in the same way as in ps4_4.html, and the option selected is stored in selectedValue.
@@ -61,7 +65,7 @@
                           }
                     }) 
                    str += "</div>";
-                    document.getElementById('song-titles').innerHTML = str;  
+                  document.getElementById('song-titles').innerHTML = str;  
                 }
 
 				
