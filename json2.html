@@ -14,21 +14,23 @@
       // Updated the HTML in the formatting section to make it not a list.
       $.get( "https://allie-tatarian.github.io/songs.json", 
 			function( data ) {
-				console.log('raw data\n'+ data)
+        // Right now I'm trying to see if I can just get it to print as is!
+
+				//console.log('raw data\n'+ data)
 				str = JSON.stringify(data);		//data is a json object
 				document.getElementById('json-data').innerHTML = str;
-				console.log('string data\n'+ str)
+				//console.log('string data\n'+ str)
 
-				str = "<div>";
-				data.forEach(function(songs) { 
-				str += "<b>" 
-					+ songs.title + "</b><br />Artist: " 
-					+ songs.artist + "<br />Genre: "
-          + songs.genre + "<br />Released "
-          + songs.release_year + "<br /><br />";
-				}) 
-	str += "</div>";
-	document.getElementById('json-parsed').innerHTML = str;  
+				//str = "<div>";
+				//data.forEach(function(songs) { 
+				//str += "<b>" 
+				//	+ songs.title + "</b><br />Artist: " 
+				//	+ songs.artist + "<br />Genre: "
+        //  + songs.genre + "<br />Released "
+        //  + songs.release_year + "<br /><br />";
+				//}) 
+	//str += "</div>";
+	//document.getElementById('json-parsed').innerHTML = str;  
 	})
     </script>
   </body>
