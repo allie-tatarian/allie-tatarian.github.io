@@ -22,16 +22,16 @@
 				document.getElementById('json-data').innerHTML = str;
 				//console.log('string data\n'+ str)
 
-				//str = "<div>";
-				//data.forEach(function(songs) { 
-				//str += "<b>" 
-				//	+ songs.title + "</b><br />Artist: " 
-				//	+ songs.artist + "<br />Genre: "
-        //  + songs.genre + "<br />Released "
-        //  + songs.release_year + "<br /><br />";
-				//}) 
-	//str += "</div>";
-	//document.getElementById('json-parsed').innerHTML = str;  
+				str = "<div>";
+				data.forEach(function(songs) { 
+				str += "<b>" 
+					+ songs.title + "</b><br />Artist: " 
+					+ songs.artist + "<br />Genre: "
+          + songs.genre + "<br />Released "
+          + songs.release_year + "<br /><br />";
+				}) 
+	str += "</div>";
+	document.getElementById('json-parsed').innerHTML = str;  
 	})
     </script>
   </body>
