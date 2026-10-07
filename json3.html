@@ -25,21 +25,20 @@
 				//console.log('string data\n'+ str)
         //I don't think I will need those two lines for this one?
 
+
+        // This didn't work!! Will try more later.
         
         // I am trying to take each genre from my list and put them in an array.
         // I want to do it like this because I think I can remove duplicates easier this way.
         // From https://medium.com/@garyfrost4321/7-ways-to-remove-array-duplicates-in-javascript-67c3dead219a
-				arr = [];
+
+        //Simplified to just listing all of the genres in the drop down for now...
+				str = "";
 				data.forEach(function(songs) { 
-				arr.push(songs.genre);
+				str += "<option>" 
+					+ songs.genre + "</option>";
 				}) 
-
-        //Remove duplicates from the genre array.
-        // This should work by turning the array into a set (no duplicates allowed) and then back into an array.
-        arr = Array.from(new Set(arr));
-
-        list = arr.join('</option><option>');
-        document.getElementById("genre-list").innerHTML = "<option>" + list + "</option>";
+	document.getElementById('genre-list').innerHTML = str; 
 	})
     </script>
   </body>
