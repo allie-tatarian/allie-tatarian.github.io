@@ -5,8 +5,42 @@
     <title>Problem Set 5</title>
   </head>
   <body>
+    <form>
+      <select id="song-genres">
+        <div id="genre-list"></div>
+      </select>
+    </form>
+    <div id="json-data"></div>
+    <div id="json-parsed"></div>
     <script language="javascript">
-      
+      // Copied this directly from json09_get.html and then modified. 
+      // Replaced the "get" URL with the URL pointing to my data.
+      // Replaced the <ul> tags with <div> tags for the formatted songs
+      // Updated the HTML in the formatting section to make it not a list.
+      $.get( "https://allie-tatarian.github.io/songs.json", 
+			function( data ) {
+				console.log('raw data\n'+ data)
+				str = JSON.stringify(data);		//data is a json object
+				//document.getElementById('json-data').innerHTML = str;
+				//console.log('string data\n'+ str)
+        //I don't think I will need those two lines for this one?
+
+        
+        // I am trying to take each genre from my list and put them in an array.
+        // I want to do it like this because I think I can remove duplicates easier this way.
+        // From https://medium.com/@garyfrost4321/7-ways-to-remove-array-duplicates-in-javascript-67c3dead219a
+				arr = [];
+				data.forEach(function(songs) { 
+				arr.push(songs.genre);
+				}) 
+
+        //Remove duplicates from the genre array.
+        // This should work by turning the array into a set (no duplicates allowed) and then back into an array.
+        arr = Array.from(new Set(arr));
+
+        list = arr.join('</option><option>');
+        document.getElementById("genre-list").innerHTML = "<option>" + list + "</option>";
+	})
     </script>
   </body>
 </html>
