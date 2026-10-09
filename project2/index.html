@@ -57,7 +57,7 @@
         padding: 6px 3px 2px 3px;
         margin: 2px;
         background-color: #eee;
-        cursor: pointer;
+        /*cursor: pointer;*/
       }
 
       .btn-container {
@@ -74,6 +74,14 @@
         border: 1px solid gray;
         border-radius: 5px;
         cursor: pointer;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      input {
+        margin-bottom: 8px;
       }
 
       /* Media breakpoint; makes the game a little more compact on mobile.*/
@@ -194,12 +202,17 @@
       </div>
     </div>
     <div class="container btn-container">
-      <button id="backspace">Backspace</button>
-      <button id="guess">Guess</button>
+      <input type="text" name="guess" id="guess" placeholder="SLATE" minlength=5 maxlength=5 />
+      <!--<button id="backspace">Backspace</button>-->
+      <button id="guess-btn">Guess</button>
+      <button id="reset" class="hidden">Reset</button>
     </div>
     
 
     <script src="https://allie-tatarian.github.io/project2/script.js"></script>
-    <script></script>
+    <script>
+      // wordle.json is a json array with every possible wordle word, 2315 total.
+      // found at https://gist.github.com/mrhead/f0ced2726394588e8d9863e0568b6473#file-wordle-json
+    </script>
   </body>
 </html>
