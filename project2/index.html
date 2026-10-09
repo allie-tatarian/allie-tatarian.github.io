@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CS120 - Project 2</title>
+    <link rel="stylesheet" type="text/css" href="https://allie-tatarian.github.io/project2/style.css"  />
+    <style>
+      /* Classes to style what you see when you open the page. */
+      
+      .container {
+        margin-top: 20px;
+        margin-bottom: 15px;
+      }
+      
+      .letter {
+        height: 50px;
+        width: 50px;
+        border: 2.5px solid gray;
+        margin: 5px;
+        text-align: center;
+        vertical-align: middle;
+        color: #444;
+        font-weight: bold;
+        font-size: 30px;
+        padding-top: 5px;
+      }
+
+      .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Got this centering method from https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_perfect_center */
+      }
+
+      .krow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .keyboard {
+        background-color: #c4c4c4;
+        padding: 15px 0px;
+        width: 95%;
+        margin: 0px auto;
+        border: 0px;
+        border-radius: 15px;
+        max-width: 320px;
+      }
+
+      .key {
+        height: 25px;
+        width: 15px;
+        border: 1px solid gray;
+        border-radius: 2px;
+        text-align: center;
+        padding: 6px 3px 2px 3px;
+        margin: 2px;
+        background-color: #eee;
+        cursor: pointer;
+      }
+
+      .btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        margin: -10px 5px 0px 5px;
+        height: 25px;
+        width: 90px;
+        background-color: #eee;
+        border: 1px solid gray;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* Media breakpoint; makes the game a little more compact on mobile.*/
+      /* Red keyboard background is for TESTING ONLY, take out when done. */
+
+      @media only screen and (max-width: 400px) {
+        .keyboard {background: red; width: 98%; max-width: 300px;}
+        .key {padding: 4px 1px 0px 1px;}
+        .letter {margin: 5px 1px;}
+      }
+
+      /* This section adds styling as you play the game. */
+
+      .wrong {
+        background-color: gray;
+        color: #eee;
+        font-weight: bold;
+      }
+
+      .move {
+        background-color: darkkhaki;
+        color: #eee;
+        font-weight: bold;
+      }
+
+      .correct {
+        background-color: green;
+        color: #eee;
+        font-weight: bold;
+      }
+
+      .used {
+        background-color: darkgray;
+        color: white;
+        border: 1px solid darkgray;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="row1" class="row">
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+      </div>
+      <div id="row2" class="row">
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+      </div>
+      <div id="row3" class="row">
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+      </div>
+      <div id="row4" class="row">
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+      </div>
+      <div id="row5" class="row">
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+      </div>
+      <div id="row6" class="row">
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+      </div>
+    </div>
+
+    <div class="container keyboard">
+      <div id="krow1" class="krow">
+        <div class="key">Q</div>
+        <div class="key">W</div>
+        <div class="key">E</div>
+        <div class="key">R</div>
+        <div class="key">T</div>
+        <div class="key">Y</div>
+        <div class="key">U</div>
+        <div class="key">I</div>
+        <div class="key">O</div>
+        <div class="key">P</div>
+      </div>
+      <div id="krow2" class="krow">
+        <div class="key">A</div>
+        <div class="key">S</div>
+        <div class="key">D</div>
+        <div class="key">F</div>
+        <div class="key">G</div>
+        <div class="key">H</div>
+        <div class="key">J</div>
+        <div class="key">K</div>
+        <div class="key">L</div>
+      </div>
+      <div id="krow3" class="krow">
+        <div class="key">Z</div>
+        <div class="key">X</div>
+        <div class="key">C</div>
+        <div class="key">V</div>
+        <div class="key">B</div>
+        <div class="key">N</div>
+        <div class="key">M</div>
+      </div>
+    </div>
+    <div class="container btn-container">
+      <button id="backspace">Backspace</button>
+      <button id="guess">Guess</button>
+    </div>
+    
+
+    <script src="https://allie-tatarian.github.io/project2/script.js"></script>
+    <script></script>
+  </body>
+</html>
