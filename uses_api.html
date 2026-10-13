@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CS120 Problem Set 6</title>
+  </head>
+  <body>
+
+    <!--The button runs the function that calls the API.-->
+    <button id="button">Run the function!</button>
+    <p>When you press the button, it will ask you for a number, and then give you the name and picture of a Pokemon with that ID number! If you want some inspiration, here are some of my favorites:</p>
+    <ul>
+    	<li>887</li>
+        <li>187</li>
+        <li>109</li>
+        <li>869</li>
+    </ul>
+    <br />
+
+    <!--This div is just a placeholder and fills with stuff once the function runs.-->
+    <div id="api"></div>
+
+
+    
+    <script>
+        //In the API, the names come back all lower case, and I wanted title case.
+        //I got this from here: https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+        function toTitleCase(str) {
+            return str.replace(
+                /\w\S*/g,
+                text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+            );
+        }
+
+        //I'm using the API Pokeapi, at https://pokeapi.co/
+        function poke() {
+            //Once you press the button, you recieve a popup asking for a number.
+            let num = prompt("Pick a number between 1 and 1025:");
+            if (num > 1025 || num < 0 || isNaN(num)) {
+                return //just quits out if not in the range or not a number.
+            }
+            // Uses the number you chose to create the API URL
+            var url = "https://pokeapi.co/api/v2/pokemon/" + num;
+            console.log(url); //for debugging
+
+            //This section pulled from the fetch example, api_zipcode_fetch.html
+             fetch(url)
+            .then (res => res.text())
+            .then (response => 
+            {
+                console.log("Response: " + response);
+                respObj = JSON.parse(response);
+
+                //I thought it would be nice to get a picture, too.
+                img = respObj.sprites.other.home.front_default;
+
+                //This just grabs the name from the API and makes it title case.
+                name = respObj.name;
+                name = toTitleCase(name);
+
+                //prints the name of the Pokemon and its picture in the empty div
+                s = "Your Pokemon is " + name + "! <br /><img src=\"" + img + "\" width=250 />";
+                document.getElementById("api").innerHTML = s
+            })
+            .catch (error => console.log(error))
+
+
+            //Pull the API for the pokemon with the right number
+            //document.getElementById("api").innerHTML = "test"; //write out whatever here, based on that pokemon;
+        }
+
+        
+
+        window.onload = function () {
+            //once you click the button, the function runs
+            document.getElementById("button").addEventListener("click", poke);
+        }
+
+    </script>
+  </body>
+</html>
