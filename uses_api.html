@@ -26,6 +26,8 @@
         //In the API, the names come back all lower case, and I wanted title case.
         //I got this from here: https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
         function toTitleCase(str) {
+            str = str.replace("-", " ");
+            //Added this ^ extra line, because some of the names return with a - instead of a space.
             return str.replace(
                 /\w\S*/g,
                 text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
