@@ -57,6 +57,7 @@
         padding: 6px 3px 2px 3px;
         margin: 2px;
         background-color: #eee;
+        font-family: Arial;
         /*cursor: pointer;*/
       }
 
@@ -66,7 +67,7 @@
         align-items: center;
       }
 
-      button {
+      .button {
         margin: -10px 5px 0px 5px;
         height: 25px;
         width: 90px;
@@ -124,43 +125,43 @@
   <body>
     <div class="container">
       <div id="row1" class="row">
-        <div class="letter"></div>
-        <div class="letter"></div>
+        <div class="letter one"></div>
+        <div class="letter two"></div>
         <div class="letter"></div>
         <div class="letter"></div>
         <div class="letter"></div>
       </div>
       <div id="row2" class="row">
-        <div class="letter"></div>
-        <div class="letter"></div>
+        <div class="letter one"></div>
+        <div class="letter two"></div>
         <div class="letter"></div>
         <div class="letter"></div>
         <div class="letter"></div>
       </div>
       <div id="row3" class="row">
-        <div class="letter"></div>
-        <div class="letter"></div>
+        <div class="letter one"></div>
+        <div class="letter two"></div>
         <div class="letter"></div>
         <div class="letter"></div>
         <div class="letter"></div>
       </div>
       <div id="row4" class="row">
-        <div class="letter"></div>
-        <div class="letter"></div>
+        <div class="letter one"></div>
+        <div class="letter two"></div>
         <div class="letter"></div>
         <div class="letter"></div>
         <div class="letter"></div>
       </div>
       <div id="row5" class="row">
-        <div class="letter"></div>
-        <div class="letter"></div>
+        <div class="letter one"></div>
+        <div class="letter two"></div>
         <div class="letter"></div>
         <div class="letter"></div>
         <div class="letter"></div>
       </div>
       <div id="row6" class="row">
-        <div class="letter"></div>
-        <div class="letter"></div>
+        <div class="letter one"></div>
+        <div class="letter two"></div>
         <div class="letter"></div>
         <div class="letter"></div>
         <div class="letter"></div>
@@ -201,18 +202,168 @@
         <div class="key">M</div>
       </div>
     </div>
-    <div class="container btn-container">
-      <input type="text" name="guess" id="guess" placeholder="SLATE" minlength=5 maxlength=5 />
-      <!--<button id="backspace">Backspace</button>-->
-      <button id="guess-btn">Guess</button>
-      <button id="reset" class="hidden">Reset</button>
-    </div>
+    <form name="form" class="container btn-container">
+        <input type="text" name="guess" id="guess" placeholder="SLATE" minlength=5 maxlength=5/><br />
+        <!--I found <input type="button"> easier to use than <button>, at least for testing.-->
+        <input type="button" id="guess-btn" value="Guess" class="button"><br />
+        <input type="button" id="reset" value="Reset" class="hidden button"><br />
+    </form>
     
 
     <script src="https://allie-tatarian.github.io/project2/script.js"></script>
     <script>
+
+      //Initializing variables
+      let turn = 0;
+      let win = 0;
+      let lose = 0;
+      let resetbtn = document.getElementById("reset");
+      let guessbtn = document.getElementById("guess-btn");
+
+     let words = ["naval", "serve", "heath", "dwarf", "model", "karma", "grade", "quiet", "bench", "abate", "feign", "major", "death", "fresh", "crust", "stool", "queue", "abase", "marry", "react", "batty", "pride", "floss", "helix", "croak", "staff", "paper", "unfed", "whelp", "trawl",]; // Insert ~30 random Wordle words here
       // wordle.json is a json array with every possible wordle word, 2315 total.
       // found at https://gist.github.com/mrhead/f0ced2726394588e8d9863e0568b6473#file-wordle-json
+
+      //These hold the classes for the letter boxes, used in functions below
+      const one = document.getElementsByClassName("one");
+      const two = document.getElementsByClassName("two");
+      const three = document.getElementsByClassName("three");
+      const four = document.getElementsByClassName("four");
+      const five = document.getElementsByClassName("five");
+      
+      // To get a random word, we get a random number 0-29. This will be the index of our Wordle word.
+      index = Math.floor(Math.random() * 30);
+      wordle = words[index];
+      wordleLetters = wordle.split("");
+      
+      // Just a test, REMOVE LATER. This method IS working to choose a word!
+      document.getElementById("test").innerHTML = wordle;
+      console.log(wordle); //This is working, press F12 to see
+      //Keep console.log, not the other
+
+      //This part of the function is grabbing the guessed word out of the input.
+      // Right now it just takes the word and prints it on screen; will need to change later.
+      function guess() {
+
+        //stuff to add: 
+        //1. comparison with wordle word
+        //2. change of classes on letter boxes
+        //3. An arrow function -> for buttons? Keyboard update?
+          // maybe some short function that happens inside somewhere; basically any 1-line function.
+          // maybe add another event listener for guess button, and it runs function to update keyboard.
+        //4. A class -> For Wordle words? Or guess words? or keyboard keys?
+        //5. .map or .foreach -> replace wipe loop in reset()?
+        //6. Update the stupid keyboard
+        //7. (opt.) API call to dictionary
+
+          guessed = document.form.guess.value;
+          guessed = guessed.toLowerCase();
+          guessLetters = guessed.split("");
+
+          if (guessed.length != 5 || win == 1) {
+          	return; //this just exits the function if the wrong number of letters are input
+            //users shouldn't be able to keep playing if win==1, but this is just in case.
+          }
+
+          one[turn].innerHTML = guessLetters[0];
+          two[turn].innerHTML = guessLetters[1];
+          three[turn].innerHTML = guessLetters[2];
+          four[turn].innerHTML = guessLetters[3];
+          five[turn].innerHTML = guessLetters[4];
+
+          if (guessed === wordle) {
+          	win = 1;
+            one[turn].classList.add("correct");
+            two[turn].classList.add("correct");
+            three[turn].classList.add("correct");
+            four[turn].classList.add("correct");
+            five[turn].classList.add("correct");
+          }
+          
+          turn += 1;
+
+          if (turn == 6 && win == 0) {
+            alert("You lose! The word was " + wordle);
+          }
+
+          if (win == 1 || turn == 6) {
+          	resetbtn = document.getElementById("reset");
+            resetbtn.classList.remove("hidden");
+          }
+
+
+        }
+// example foreach in w3schools:
+//let text = "";
+//const fruits = ["apple", "orange", "cherry"];
+//fruits.forEach(myFunction);
+
+//document.getElementById("demo").innerHTML = text;
+ 
+//function myFunction(item, index) {
+//  text += index + ": " + item + "<br>"; 
+//}
+
+//The output is:
+// 0: apple
+// 1: orange
+// 2: cherry
+
+//Potential arrow function:
+
+//const wipeFunction = (item, index) => {
+        //item[index].classList.remove("correct", "move", "wrong");
+        //item[index].innerHTML = "";
+//I am not totally confident this would work.
+//Think more, and use this: https://stackoverflow.com/questions/3871547/iterating-over-result-of-getelementsbyclassname-using-array-foreach
+//}
+
+
+      function reset() {
+        for (let i = 0; i < 6; i++) {
+  				one[i].classList.remove("correct", "move", "wrong");
+                one[i].innerHTML = "";
+                //could make another function that does this, and then
+                //replace loop with one.forEach(wipeFunction); etc....
+                //other function could maybe even be the arrow function!
+
+                two[i].classList.remove("correct", "move", "wrong");
+                two[i].innerHTML = "";
+                three[i].classList.remove("correct", "move", "wrong");
+                three[i].innerHTML = "";
+                four[i].classList.remove("correct", "move", "wrong");
+                four[i].innerHTML = "";
+                five[i].classList.remove("correct", "move", "wrong");
+                five[i].innerHTML = "";
+			  }
+        resetbtn.classList.add("hidden"); 
+        guessbtn.classList.remove("hidden");
+        index = Math.floor(Math.random() * 30);
+        wordle = words[index];
+        wordleLetters = wordle.split("");
+        document.getElementById("test").innerHTML = wordle;
+        console.log(wordle);
+        turn = 0;
+        win = 0;
+        lose = 0;
+      } 
+
+      window.onload = function () {
+        guessbtn.addEventListener("click", guess);
+        resetbtn.addEventListener("click", reset);
+      }
+      
+      // This does not appear to be working, need to find another way to get the value.
+      //function getGuess() {
+      //    guess = document.form.guess.value;
+      //    document.getElementById("test").innerHTML += "<br />" + guess;
+      //  }
+        
+      //document.getElementById("guess-btn").addEventListener("click", (event)=>{event.preventDefault(); getGuess()});
+      
+      
+      
+      
       // Potential API for cross-checking words: https://developer.oxforddictionaries.com/dictionary-api; https://www.opendictionaryapi.com/; https://developer.wordnik.com/
       // More: https://freedictionaryapi.com/api/v1#GET/entries/{language}/{word} (most promising!!)
       // API is https://freedictionaryapi.com/api/v1#GET/entries/en/{word} - when not a word, get "entries": []; otherwise, "entries" will have...entries...
