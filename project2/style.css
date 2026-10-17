@@ -1,0 +1,121 @@
+/* Classes to style what you see when you open the page. */
+
+.container {
+    /*Container for the guessed words, keyboard, and form. Gives some better spacing.*/
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.letter {
+    /* The boxes for the letters that show up as you guess. */
+    height: 50px;
+    width: 50px;
+    border: 2.5px solid gray;
+    margin: 5px;
+    text-align: center;
+    vertical-align: middle;
+    color: #444;
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 5px;
+    text-transform: uppercase;
+    font-family: Arial;
+}
+
+.row, .krow {
+    /*The 6 5-letter rows, and the keyboard rows. This keeps them on separate lines but centered.*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Got this centering method from https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_perfect_center */
+}
+
+.keyboard {
+    /*The background of the keyboard*/
+    background-color: #c4c4c4;
+    padding: 15px 0px;
+    width: 95%;
+    margin: 0px auto;
+    border: 0px;
+    border-radius: 15px;
+    max-width: 320px;
+}
+
+.key {
+    /*The keys in the keyboard*/
+    height: 25px;
+    width: 15px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    text-align: center;
+    padding: 6px 3px 2px 3px;
+    margin: 2px;
+    background-color: #eee;
+    font-family: Arial;
+}
+
+.form-container {
+    /*The container for the input and buttons*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    /* Makes the buttons a little bigger, mostly*/
+    margin: -10px 5px 0px 5px;
+    height: 25px;
+    width: 90px;
+    background-color: #eee;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hidden {
+    /*Used for the guess/reset buttons when they aren't being used*/
+    display: none;
+}
+
+input {
+    /*Added some spacing to the input so it looks nicer*/
+    margin-bottom: 8px;
+}
+
+/* Media breakpoint; makes the game a little more compact on smaller screens.*/
+
+@media only screen and (max-width: 400px) {
+    .keyboard {width: 98%; max-width: 300px;}
+    .key {padding: 4px 1px 0px 1px;}
+    .letter {margin: 5px 1px;}
+}
+
+/* This section adds styling as you play the game. */
+
+.wrong {
+    /*Added to letters that are not in the word.*/
+    background-color: gray;
+    color: #eee;
+    font-weight: bold;
+}
+
+.move {
+    /*Added to letters that are in the word, but in the wrong place.*/
+    background-color: darkkhaki;
+    color: #eee;
+    font-weight: bold;
+}
+
+.correct {
+    /*Added to letters that are in the word and in the right place.*/
+    background-color: green;
+    color: #eee;
+    font-weight: bold;
+}
+
+.used {
+    /*Added to letters that are not in the word. This style is used for the keyboard only.*/
+    background-color: darkgray;
+    color: white;
+    border: 1px solid darkgray;
+}
