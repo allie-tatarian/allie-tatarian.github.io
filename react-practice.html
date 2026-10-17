@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>React Demo</h1>
+    <div id="myapp"></div>
+
+    <script type = 'text/babel'>
+        var message1 = "Four score"
+		var message2 = "and 7 years ago"
+    	var pageTitle = "My Great page!"
+		var hello2 = <h2 id="main">{pageTitle}</h2>
+        
+        var animals = "fish,dog,cat,whale".split(',')
+    	var hello = <> 
+                      <h2 id="main">Hello React World!</h2>
+                      <p>Hey, how's it going?</p>
+                      <select>
+                      	{animals.map((item, i) => <option key={i}>{item}</option>)}
+                      </select>
+                    </>
+    //<> and </> act as a div. {} tells it to evaluate, or act as code. Easy way to split array into options!
+    //key in option is optional, but console might complain if it's not there, so this is a way to add it.
+		ReactDOM.render(hello, myapp);
+		ReactDOM.render(hello, myapp);
+    </script>
+    </script>
+  </body>
+</html>
