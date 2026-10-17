@@ -7,42 +7,44 @@
   </head>
   <body>
     <div class="container">
-      <div id="row1" class="row">
+      <!--This first container holds the letter boxes that your guesses go into.-->
+      <div class="row">
+        <!--Each row has 5 letter boxes, with classes labelling them one-five-->
         <div class="letter one"></div>
         <div class="letter two"></div>
         <div class="letter three"></div>
         <div class="letter four"></div>
         <div class="letter five"></div>
       </div>
-      <div id="row2" class="row">
+      <div class="row">
         <div class="letter one"></div>
         <div class="letter two"></div>
         <div class="letter three"></div>
         <div class="letter four"></div>
         <div class="letter five"></div>
       </div>
-      <div id="row3" class="row">
+      <div class="row">
         <div class="letter one"></div>
         <div class="letter two"></div>
         <div class="letter three"></div>
         <div class="letter four"></div>
         <div class="letter five"></div>
       </div>
-      <div id="row4" class="row">
+      <div class="row">
         <div class="letter one"></div>
         <div class="letter two"></div>
         <div class="letter three"></div>
         <div class="letter four"></div>
         <div class="letter five"></div>
       </div>
-      <div id="row5" class="row">
+      <div class="row">
         <div class="letter one"></div>
         <div class="letter two"></div>
         <div class="letter three"></div>
         <div class="letter four"></div>
         <div class="letter five"></div>
       </div>
-      <div id="row6" class="row">
+      <div class="row">
         <div class="letter one"></div>
         <div class="letter two"></div>
         <div class="letter three"></div>
@@ -52,7 +54,8 @@
     </div>
 
     <div class="container keyboard">
-      <div id="krow1" class="krow">
+      <!--This is the container for the keyboard. It has 3 rows with letters in separate "key" divs, following a standard QWERTY keyboard layout.-->
+      <div class="krow">
         <div class="key">Q</div>
         <div class="key">W</div>
         <div class="key">E</div>
@@ -64,7 +67,7 @@
         <div class="key">O</div>
         <div class="key">P</div>
       </div>
-      <div id="krow2" class="krow">
+      <div class="krow">
         <div class="key">A</div>
         <div class="key">S</div>
         <div class="key">D</div>
@@ -75,7 +78,7 @@
         <div class="key">K</div>
         <div class="key">L</div>
       </div>
-      <div id="krow3" class="krow">
+      <div class="krow">
         <div class="key">Z</div>
         <div class="key">X</div>
         <div class="key">C</div>
@@ -85,9 +88,14 @@
         <div class="key">M</div>
       </div>
     </div>
+
     <form name="form" class="container form-container">
+      <!--The final section is a form. I had an easier time coding it as a form than a div.-->
         <input type="text" name="guess" id="guess" placeholder="SLATE" minlength=5 maxlength=5/><br />
+        <!--The input does a good job of limiting your guess to 5 letters, but you can still guess fewer.-->
+
         <!--I found <input type="button"> easier to use than <button>, at least for testing.-->
+          <!--The reset button is hidden until you win or lose. The "hidden" class then moves to the guess button.-->
         <input type="button" id="guess-btn" value="Guess" class="button"><br />
         <input type="button" id="reset" value="Reset" class="hidden button"><br />
     </form>    
