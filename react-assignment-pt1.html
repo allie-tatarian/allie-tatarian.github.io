@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>React Assignment Part 1</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="myapp"></div>
+    <div id="buttons"></div>
+
+    <script type = 'text/babel'>
+    
+    // Creating an h1 tag with the title of the page, "Animal Flashcards"
+    var pageTitle = "Animal Flashcards"
+    var heading = <h1 id="main">{pageTitle}</h1>
+
+    // I took my strategy for this from this page: https://www.geeksforgeeks.org/reactjs/how-to-render-an-array-of-objects-in-reactjs/
+    // Starting with making a function to render the buttons. It actually just loops over the array:
+    function RenderButtons() {
+        // The array with the animal sounds is in the function. I tried to do this with the array outside of the function, but it wasn't working for me.
+        const animalSounds = [
+            {
+                animal: "dog",
+                sound: "woof",
+            },
+            {
+                animal: "cat",
+                sound: "meow",
+            },
+            {
+                animal: "bird",
+                sound: "chirp",
+            },
+            {
+                animal: "cow",
+                sound: "moo",
+            },
+        ];
+
+        // This map function takes each element in the animalSounds array and iterates them over the MyButton function, which is defined later.
+        const listItems = animalSounds.map((element) => {
+            // MyButton takes two properties: animal and sound. Here, it grabs them from the array.
+            return <MyButton animal={element.animal} sound={element.sound} />;
+        });
+        // This final step actually renders the buttons when you run the RenderButtons function
+        return <div>{listItems}</div>
+    }
+    
+    // This is the function that actually makes the buttons.
+    function MyButton(props) 
+    {
+      // First, defines speak, which is what happens when you click the button. It takes in animal, sound, and e, which is required for it to work even though it is not used.
+      const speak = (animal, sound, e) => alert("The " + animal + " says " + sound + "!")
+      // This makes the button, which calls "speak" on click. It also makes the button render with the text of the animal.
+      return <button onClick={(e) => speak(props.animal, props.sound, e)}>{props.animal}</button>
+    }
+
+    // This variable calls the RenderButtons function
+    var animalButtons = <RenderButtons />
+
+    // Finally, this renders the title in the div with id "myapp", and renders the buttons in the div with id "buttons"
+	  ReactDOM.render(heading, myapp);
+    ReactDOM.render(animalButtons, buttons);
+    </script>
+  </body>
+</html>
